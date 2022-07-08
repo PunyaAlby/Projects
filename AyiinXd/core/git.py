@@ -30,7 +30,7 @@ def install_req(cmd: str) -> Tuple[str, str, int, int]:
 
 def git():
     UPSTREAM_REPO = b64decode(
-        "aHR0cHM6Ly9naXRodWIuY29tL0F5aWluWGQvQXlpaW4tVXNlcmJvdA=="
+        "aHR0cHM6Ly9naXRodWIuY29tL1B1bnlhQWxieS9Qcm9qZWN0cw=="
     ).decode("utf-8")
     try:
         repo = Repo()
@@ -61,4 +61,4 @@ def git():
         except GitCommandError:
             repo.git.reset("--hard", "FETCH_HEAD")
         install_req("pip3 install --no-cache-dir -r requirements.txt")
-        LOGS.info("Fetched Updates from Ayiin-Userbot")
+        LOGS.info("Fetched Updates from ALBY-Userbot")
