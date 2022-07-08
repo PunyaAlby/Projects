@@ -40,8 +40,8 @@ try:
     LOGS.info(f"Telethon Version - {version.__version__} [Layer: {LAYER}]")
     LOGS.info(f"PyTgCalls Version - {pytgcalls.__version__}")
     LOGS.info(f"Userbot Version - {ubotversion} •[{adB.name}]•")
-    LOGS.info(f"Ayiin Version - {ayiin_version} •[{HOSTED_ON}]•")
-    LOGS.info("[✨ BERHASIL DIAKTIFKAN! ✨]")
+    LOGS.info(f"ALBY Version - {ayiin_version} •[{HOSTED_ON}]•")
+    LOGS.info("[ALBY USERBOT BERHASIL DIAKTIFKAN! ✨]")
 except (ConnectionError, KeyboardInterrupt, NotImplementedError, SystemExit):
     pass
 except BaseException as e:
