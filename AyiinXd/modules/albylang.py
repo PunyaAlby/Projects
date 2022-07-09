@@ -116,7 +116,7 @@ async def test_string(event):
 
 CMD_HELP.update(
     {
-        "yinslang": f"**Plugin :** `yinslang`\
+        "albylang": f"**Plugin :** `albylang`\
         \n\n  »  **Perintah :** `{cmd}lang`\
         \n  »  **Kegunaan : **__Untuk Melihat Daftar Bahasa Yang Tersedia.__\
         \n\n  »  **Perintah :** `{cmd}set <nama_bahasa>`\
