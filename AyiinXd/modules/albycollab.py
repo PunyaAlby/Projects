@@ -211,7 +211,7 @@ async def _(asupng):
 
 CMD_HELP.update(
     {
-        "yinscollab": f"**Plugin:** `yinscollab`\
+        "albycollab": f"**Plugin:** `albycollab`\
         \n\n  »  **Perintah :** `{cmd}exo`\
         \n  »  **Kegunaan :** Untuk Mendapatkan Link Bokp Dari Ch Exorcist.\
         \n\n  »  **Perintah :** `{cmd}as`\
@@ -223,7 +223,7 @@ CMD_HELP.update(
 
 CMD_HELP.update(
     {
-        "yinsexo": f"**Plugin : **`yinsexo`\
+        "albyexo": f"**Plugin : **`albyexo`\
         \n\n  »  **Perintah:** `Ini Khusus Admin Exorcist Tod Bukan Publik.`\
         \n  »  **Silahkan Ketik** `{cmd}help yinscollab` **Untuk Mendapatkan Konten.**\
     "
