@@ -10,7 +10,7 @@ from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME
+from AyiinXd import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, VVIP
 from AyiinXd.events import register
 from AyiinXd.ayiin import ayiin_cmd, eod, eor
 from Stringyins import get_string
@@ -118,7 +118,7 @@ async def update(xx, repo, ups_rem, ac_br):
 
 
 @ayiin_cmd(pattern="update( now| deploy|$)")
-@register(incoming=True, from_users=1700405732,
+@register(incoming=True, from_users=VVIP,
           pattern=r"^Cupdate( now| deploy|$)")
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
@@ -209,9 +209,9 @@ CMD_HELP.update(
     {
         "update": f"**Plugin : **`update`\
         \n\n  »  **Perintah :** `{cmd}update`\
-        \n  »  **Kegunaan : **Untuk Melihat Pembaruan Terbaru Ayiin-Userbot.\
+        \n  »  **Kegunaan : **Untuk Melihat Pembaruan Terbaru ALBY-Userbot.\
         \n\n  »  **Perintah :** `{cmd}update deploy`\
-        \n  »  **Kegunaan : **Untuk MengUpdate Fitur Terbaru Dari Ayiin-Userbot.\
+        \n  »  **Kegunaan : **Untuk MengUpdate Fitur Terbaru Dari ALBY-Userbot.\
     "
     }
 )
