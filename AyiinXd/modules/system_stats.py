@@ -184,22 +184,22 @@ async def amireallyalive(alive):
     adB = AyiinDB()
     user = await alive.client.get_me()
     uptime = await get_readable_time((time.time() - StartTime))
-    await alive.edit("😘")
+    await alive.edit("🤫")
     await asyncio.sleep(3)
     output = (
         f"**Tʜᴇ [ᴀʟʙʏ-ᴜsᴇʀʙᴏᴛ](https://github.com/PunyaAlby/ALBY-Userbot)**\n\n"
         f"**{alive_text}**\n\n"
         f"╭✠╼━━━━━━━━━━━━━━━✠╮\n"
-        f"{emoji} **Bᴀsᴇ Oɴ :** ••{adB.name}••\n"
-        f"{emoji} **Oᴡɴᴇʀ :** [{user.first_name}](tg://user?id={user.id}) \n"
-        f"{emoji} **Mᴏᴅᴜʟᴇs :** `{len(modules)} Modules` \n"
-        f"{emoji} **Bᴏᴛ Vᴇʀsɪᴏɴ :** `{BOT_VER}` \n"
-        f"{emoji} **Pʏᴛʜᴏɴ Vᴇʀsɪᴏɴ :** `{python_version()}` \n"
-        f"{emoji} **PʏTɢCᴀʟʟs Vᴇʀsɪᴏɴ :** `{pytgcalls.__version__}` \n"
-        f"{emoji} **Tᴇʟᴇᴛʜᴏɴ Vᴇʀsɪᴏɴ :** `{version.__version__}` \n"
-        f"{emoji} **Pʏ-Aʏɪɪɴ Vᴇʀsɪᴏɴ :** `{py_ver}`\n"
-        f"{emoji} **Aʏɪɪɴ Vᴇʀsɪᴏɴ :** `{ayiin_version}` [{HOSTED_ON}]\n"
-        f"{emoji} **Bᴏᴛ Uᴘᴛɪᴍᴇ :** `{uptime}`\n"
+        f"{emoji} **BASE ON :** ••{adB.name}••\n"
+        f"{emoji} **OWNER :** [{user.first_name}](tg://user?id={user.id}) \n"
+        f"{emoji} **MODULES :** `{len(modules)} Modules` \n"
+        f"{emoji} **BOT VERSION :** `{BOT_VER}` \n"
+        f"{emoji} **PYTHON VERSION :** `{python_version()}` \n"
+        f"{emoji} **PYTGCALLS VERSION :** `{pytgcalls.__version__}` \n"
+        f"{emoji} **TELETHON VERSION :** `{version.__version__}` \n"
+        f"{emoji} **PY-ALBY VERSION :** `{py_ver}`\n"
+        f"{emoji} **ALBY VERSION :** `{ayiin_version}` [{HOSTED_ON}]\n"
+        f"{emoji} **BOT UPTIME :** `{uptime}`\n"
         "╰✠╼━━━━━━━━━━━━━━━✠╯\n\n"
     )
     if ALIVE_LOGO:
