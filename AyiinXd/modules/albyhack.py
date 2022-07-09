@@ -121,7 +121,7 @@ async def _(kontol):
 
 CMD_HELP.update(
     {
-        "yinshack": f"**Plugin : **`yinshack`\
+        "albyhack": f"**Plugin : **`albyhack`\
         \n\n  »  **Perintah :** `{cmd}hack`\
         \n  »  **Kegunaan : **Coba sendiri tod\
         \n\n**Klo mau Req, kosa kata dari lu Bisa pake Module costum. Ketik** `{cmd}help costum`\
