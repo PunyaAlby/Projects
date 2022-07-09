@@ -84,7 +84,7 @@ async def _(mikir):
 
 CMD_HELP.update(
     {
-        "yinstoxic3": f"**Plugin : **`yinstoxic3`\
+        "albytoxic3": f"**Plugin : **`albytoxic3`\
         \n\n  »  **Perintah :** `{cmd}ceking`\
         \n  »  **Kegunaan : **Cobain Sendiri Dah Tod.\
         \n\n  »  **Perintah :** `{cmd}hina`\
