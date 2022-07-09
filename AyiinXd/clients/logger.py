@@ -24,8 +24,8 @@ MSG_ON = """
 ├▹ ᴀʟʙʏ Vᴇʀsɪᴏɴ - {} •[{}]•
 ├▹ Usᴇʀʙᴏᴛ Vᴇʀsɪᴏɴ - {}
 ├▹ @{}
-├▹ **Ketik** `{}ping` **Untuk Mengecek Bot**
 ├▹ **Ketik** `{}help` **Untuk Melihat Informasi Module**
+├▹ **Ketik** `{}alive` **Untuk Mengecek Bot**
 ╰╼┅━━━━━╍━━━━━┅╾
 **Powered By:** @ruangprojects
 """
