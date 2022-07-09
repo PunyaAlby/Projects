@@ -123,7 +123,7 @@ async def dyno_usage(dyno):
     if app is None:
         return await dyno.edit(get_string("heroku_12")
         )
-    xx = await eor(dyno, "🤖")
+    xx = await eor(dyno, "🔋")
     useragent = (
         "Mozilla/5.0 (Linux; Android 10; SM-G975F) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -247,7 +247,7 @@ CMD_HELP.update(
     {
         "heroku": f"**Plugin : **`heroku`\
         \n\n  »  **Perintah :** `{cmd}set var <nama var> <value>`\
-        \n  »  **Kegunaan : **Tambahkan Variabel Baru Atau Memperbarui Variabel Setelah Menyetel Variabel Ayiin-Userbot Akan Di Restart.\
+        \n  »  **Kegunaan : **Tambahkan Variabel Baru Atau Memperbarui Variabel Setelah Menyetel Variabel ALBY-Userbot Akan Di Restart.\
         \n\n  »  **Perintah :** `{cmd}get var or {cmd}get var <nama var>`\
         \n  »  **Kegunaan : **Dapatkan Variabel Yang Ada,Harap Gunakan Di Grup Private Anda!\
         \n\n  »  **Perintah :** `{cmd}del var <nama var>`\
