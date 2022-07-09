@@ -639,7 +639,7 @@ with bot:
                 Button.url(get_string("help_7"), url=f"t.me/{botusername}?start="),
             ],
             [
-                Button.inline(get_string("help_6"), url=f"t.me/ruangdiskusikami"),
+                Button.url(get_string("help_6"), url=f"t.me/ruangdiskusikami"),
                 Button.url(get_string("help_11"), url=f"t.me/ruangprojects"),
             ],
             [Button.inline(get_string("help_8"), data="close")],
