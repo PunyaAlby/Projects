@@ -484,7 +484,7 @@ async def pixelator(event):
 
 CMD_HELP.update(
     {
-        "yinsimg": f"**Plugin : **`yinsimg`\
+        "albyimg": f"**Plugin : **`albyimg`\
         \n\n  »  **Perintah :** `{cmd}sketch` <reply ke Foto/Sticker>\
         \n  »  **Kegunaan :** Coba Dulu Tod.\
         \n\n  »  **Perintah :** `{cmd}grey` <reply ke Foto/Sticker>\
