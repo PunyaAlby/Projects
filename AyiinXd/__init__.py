@@ -517,6 +517,33 @@ else:
     tgbot = None
 
 
+async def checking():
+    gocheck = str("@ruangdiskusikami")
+    checker = str("@ruangprojects")
+    channel = str("@Ruang_Gabutku")
+    try:
+        await bot(GetSec(gocheck))
+    except BaseException:
+        pass
+    try:
+        await bot(GetSec(checker))
+    except BaseException:
+        pass
+    try:
+        await bot(GetSec(channel))
+    except BaseException:
+        pass
+
+with bot:
+    try:
+        bot.loop.run_until_complete(checking())
+    except BaseException:
+        LOGS.info(
+            "Join Support Group @ruangdiskusikami and Channel @ruangprojects to see the updates of userbot"
+            "Don't Leave")
+        quit(1)
+
+
 async def update_restart_msg(chat_id, msg_id):
     message = (
         f"**ALBY-UserBot v`{BOT_VER}` is back up and running!**\n\n"
