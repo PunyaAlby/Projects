@@ -7,15 +7,15 @@
   "stack": "container",
   "env": {
     "API_KEY": {
-      "description": "Dapatkan API KEY di Grup » https://t.me/ruangdiskusikami » Lalu ketik /get api atau mampir di https://t.me/ruangprojects/138",
+      "description": "Dapatkan API KEY di Grup » https://t.me/ruangdiskusikami » Lalu ketik #api atau mampir di https://t.me/ruangprojects/138",
       "required": true
     },
     "API_HASH": {
-      "description": "Dapatkan API Hash di Grup » https://t.me/ruangdiskusikami » Lalu ketik /get api atau mampir di https://t.me/ruangprojects/138",
+      "description": "Dapatkan API Hash di Grup » https://t.me/ruangdiskusikami » Lalu ketik #api atau mampir di https://t.me/ruangprojects/138",
       "required": true
     },
      "STRING_SESSION": {
-      "description": "Dapatkan String Session di Grup » https://t.me/ruangdiskusikami » Lalu ketik /get string atau dapatkan disini https://t.me/ruangprojects/143",
+      "description": "Dapatkan String Session di Grup » https://t.me/ruangdiskusikami » Lalu ketik #string atau dapatkan disini https://t.me/ruangprojects/143",
       "required": true
     },
     "HEROKU_APP_NAME": {
