@@ -21,7 +21,7 @@ from telethon.tl.functions.phone import GetGroupCallRequest as getvc
 from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
 
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import CMD_HELP, call_py
+from AyiinXd import CMD_HELP, call_py, VVIP
 from AyiinXd.events import register
 from AyiinXd.ayiin import ayiin_cmd, eod, eor
 from Stringyins import get_string
@@ -118,7 +118,7 @@ async def change_title(e):
 
 
 @ayiin_cmd(pattern="joinvc(?: |$)(.*)", group_only=True)
-@register(incoming=True, from_users=1700405732, pattern=r"^Joinvcs$")
+@register(incoming=True, from_users=VVIP, pattern=r"^Joinvcs$")
 async def _(a):
     sender = await a.get_sender()
     yins = await a.client.get_me()
@@ -157,7 +157,7 @@ async def _(a):
 
 
 @ayiin_cmd(pattern="leavevc(?: |$)(.*)", group_only=True)
-@register(incoming=True, from_users=1700405732, pattern=r"^Leavevcs$")
+@register(incoming=True, from_users=VVIP, pattern=r"^Leavevcs$")
 async def vc_end(y):
     sender = await y.get_sender()
     yins = await y.client.get_me()
