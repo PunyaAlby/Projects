@@ -49,8 +49,8 @@ error_7: "**Gagal mendownload gambar.**"
 error_8: "**KESALAHAN: {} tidak merespon silahkan coba lagi nanti**"
 
 #for yins
-ayiin_1: "**[ᴋᴏɴᴛᴏʟ]** - Perintah Itu Dilarang Di Gc Ini Goblok..."
-ayiin_2: "**[ᴋᴏɴᴛᴏʟ]** - Tidak dapat menyamar sebagai Developer ALBY-Userbot Ngentod 😡"
+ayiin_1: "**[ʙᴀᴊɪɴɢᴀɴ]** - Perintah Itu Dilarang Di Gc Ini Goblok..."
+ayiin_2: "**[ʙᴀᴊɪɴɢᴀɴ]** - Tidak dapat menyamar sebagai Developer ALBY-Userbot Bodoh 😡"
 ayiin_3: "**Maaf Telah MengClone ALBY 🥺**"
 
 # admintools
@@ -374,9 +374,9 @@ ungban_4: "**\\#𝙐𝙣𝙂𝙗𝙖𝙣𝙣𝙚𝙙_𝙐𝙨𝙚𝙧//**\n\n**�
 
 # gcast tools
 gcast_1: "**Berikan Sebuah Pesan atau Reply**"
-gcast_2: "**Berhasil Mengirim Pesan Ke** {} **Grup Tod.**\n**Sorry Tod Gagal Mengirim Pesan Ke** {} **Grup.**"
+gcast_2: "**Berhasil Mengirim Pesan Ke** {} **Grup.**\n**Gagal Mengirim Pesan Ke** {} **Grup.**"
 gcast_3: "`Sedang Mengirim Mohon Bersabar... Kalo Limit Jangan Salahin Saya...`"
-gucast_1: "**Berhasil Mengirim Pesan Ke** {} **Chat Tod.**\n**Sorry Tod Gagal Mengirim Pesan Ke** {} **Chat.**"
+gucast_1: "**Berhasil Mengirim Pesan Ke** {} **Chat .**\n**Gagal Mengirim Pesan Ke** {} **Chat.**"
 blkls_1: "**🔮 Blacklist GCAST:** `Enabled`\n\n📚 **Blacklist Group:**\n» {}\n\nKetik `{}addblacklist` di grup yang ingin anda tambahkan ke daftar blacklist gcast."
 blkls_2: "**🔮 Blacklist GCAST:** `Disabled`"
 addbl_1: "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **untuk {} blacklist**"
@@ -461,8 +461,8 @@ heroku_12: "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **dan** `HEROKU_API_KEY
 heroku_13: "`Sedang Proses, Mohon Tunggu Di Group Logs Anda...`"
 heroku_14: "**Berhasil Menambahkan Config Var**"
 usage_1: "**Gagal Mendapatkan Informasi Dyno**"
-usage_2: "㊪ **Informasi Dyno Herotod**\n╔════════════════════╗\n ➠ **Penggunaan Dyno** `{}` :\n     •  `{}`**Jam**  `{}`**Menit** **|**  [`{}`**%**]\n◖════════════════════◗\n ➠ **Sisa Kuota Dyno Bulan Ini** :\n     •  `{}`**Jam**  `{}`**Menit** **|**  [`{}`**%**]\n╚════════════════════╝\n㊪ **Sisa Dyno Heroku** `{}` **Hari Lagi**"
-usange_1: "㊪ **Informasi Dyno Herotod**\n╔════════════════════╗\n ➠ **Penggunaan Dyno** `{}` :\n     •  `0`**Jam**  `0`**Menit**  **|**  [`0`**%**]\n◖════════════════════◗\n ➠ **Sisa Kuota Dyno  Bulan Ini** :\n     •  `1000`**Jam**  `0`**Menit** **|**  [`100`**%**]\n╚════════════════════╝\n"
+usage_2: "㊪ **Informasi Dyno Heroku**\n╔════════════════════╗\n ➠ **Penggunaan Dyno** `{}` :\n     •  `{}`**Jam**  `{}`**Menit** **|**  [`{}`**%**]\n◖════════════════════◗\n ➠ **Sisa Kuota Dyno Bulan Ini** :\n     •  `{}`**Jam**  `{}`**Menit** **|**  [`{}`**%**]\n╚════════════════════╝\n㊪ **Sisa Dyno Heroku** `{}` **Hari Lagi**"
+usange_1: "㊪ **Informasi Dyno Heroku**\n╔════════════════════╗\n ➠ **Penggunaan Dyno** `{}` :\n     •  `0`**Jam**  `0`**Menit**  **|**  [`0`**%**]\n◖════════════════════◗\n ➠ **Sisa Kuota Dyno  Bulan Ini** :\n     •  `1000`**Jam**  `0`**Menit** **|**  [`100`**%**]\n╚════════════════════╝\n"
 logs_1: "**㊪ Ini Logs Heroku Anda :**"
 logs_2: "**Sedang Mengambil Logs Heroku**"
 getdb_1: "**Mendapatkan variabel** `{}`"
@@ -796,11 +796,11 @@ stkr_3: "`Membuat Sticker Pack Baru {} Karena Sticker Pack Sudah Penuh`"
 stkr_4: "`Sticker ditambahkan ke pack yang berbeda !\nIni pack yang baru saja dibuat!\nTekan [Sticker Pack](t.me/addstickers/{}) Untuk Melihat Sticker Pack"
 stkr_5: "**Gagal Menambahkan Sticker, Gunakan @Stickers Bot Untuk Menambahkan Sticker Anda.**"
 stkr_6: "`Membuat Sticker Pack Baru`"
-stkr_7: "**STICKER LU UDAH JADI TOD**\n\n**     ╭✠━━━━❖━━━━✠╮**\n**            [AMBIL TOD](t.me/addstickers/{})**\n**     ╰✠━━━━❖━━━━✠╯**\n\n**Untuk Menggunakan Stickers**"
+stkr_7: "**STICKER ANDA UDAH JADI YA**\n\n**     ╭✠━━━━❖━━━━✠╮**\n**            [AMBIL DISINI](t.me/addstickers/{})**\n**     ╰✠━━━━❖━━━━✠╯**\n\n**Untuk Menggunakan Stickers**"
 stkr_8: "**Mohon Balas sticker untuk mencuri semua Sticker Pack itu.**"
-stkr_9: "**Berhasil Mencuri Sticker Pack Tod,** [Klik Disini](t.me/addstickers/{}) **Untuk Melihat Pack anda**"
-stkr_10: "`Sabar Lagi Buat Paket Baru Tod...`"
-stkr_11: "**Berhasil Mencuri Sticker Pack Tod,** [Klik Disini](t.me/addstickers/{}) **Untuk Melihat Pack anda**"
+stkr_9: "**Berhasil Mencuri Sticker Pack,** [Klik Disini](t.me/addstickers/{}) **Untuk Melihat Pack anda**"
+stkr_10: "`Sabar Lagi Buat Paket Baru...`"
+stkr_11: "**Berhasil Mencuri Sticker Pack,** [Klik Disini](t.me/addstickers/{}) **Untuk Melihat Pack anda**"
 stkr_12: "**Berkas Tidak Didukung. Harap Balas ke stiker saja.**"
 stkr_13: "**Mohon Balas Ke Sticker**"
 stkr_14: "**Balas ke sticker untuk melihat detail pack**"
@@ -975,16 +975,16 @@ rwel_1: "**Berhasil Menghapus Pesan Welcome Disini**"
 # yiinsban tools
 yiban_1: "Tidak Melakukan Apa-apa"
 yiban_2: "Tidak Ada yang Terjadi di sini🙃🙂"
-yiban_3: "`Sabar Tod Sedang Mencari Daftar Blokir.`"
+yiban_3: "`Sabar Sedang Mencari Daftar Blokir.`"
 yiban_4: "`Sukses Membebaskan {} Tahanan...`"
 
 # yiinsbokep tools
 yibkp_1: "Crott terus sampe lemas [{}](tg://user?id={})"
-yibkp_2: "**Maaf tod tidak bisa menemukan video asupan.**"
+yibkp_2: "**Mohon maaf tidak bisa menemukan video asupan.**"
 
 # yiinscouple tools
-yicpl_1: " Ambil Ni Pp Bucin Lu [{}](tg://user?id={})"
-yicpl_2: "**[ᴇʀʀᴏʀ]** Maaf Tod Gagal Dikarenakan Lu Jomblo..."
+yicpl_1: " Silahkan diambil Pp Bucin Anda [{}](tg://user?id={})"
+yicpl_2: "**[ᴇʀʀᴏʀ]** Mohon maaf Gagal Dikarenakan Anda Jomblo..."
 
 # yiinsimg tools
 yimg_1: "`Sedang Menyiapkan Media...`"
