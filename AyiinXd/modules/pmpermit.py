@@ -20,8 +20,18 @@ from AyiinXd.events import ayiin_cmd
 from AyiinXd.ayiin import eod, eor
 from Stringyins import get_string
 
-DEF_UNAPPROVED_MSG = (get_string("prmt_1"))
-
+DEF_UNAPPROVED_MSG = (
+    "╔════════════════════╗\n"
+    "         🚧 𝗣𝗿𝗶𝘃𝗮𝘁𝗲 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 🚧\n"
+    "╚════════════════════╝\n"
+    "► Saya belum menyetujui anda untuk PM.\n"
+    "► Tunggu sampai saya menyetujui PM anda.\n"
+    "► Jangan Spam Chat atau anda akan otomatis diblokir.\n"
+    "╭╌╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╌╮\n"
+    "ㅤㅤ〆 ᴘᴇsᴀɴ ᴏᴛᴏᴍᴀᴛɪs 〆ㅤㅤ \n"
+    "    〆 ᴀʟʙʏ - ᴘʏʀᴏʙᴏᴛ 〆    \n"
+    "╰╌╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╌╯\n"
+)
 
 @bot.on(events.NewMessage(incoming=True))
 async def permitpm(event):
