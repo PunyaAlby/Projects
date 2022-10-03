@@ -28,8 +28,8 @@ DEF_UNAPPROVED_MSG = (
     "► Tunggu sampai saya menyetujui PM anda.\n"
     "► Jangan Spam Chat atau anda akan otomatis diblokir.\n"
     "╭╌╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╌╮\n"
-    "ㅤㅤ〆 ᴘᴇsᴀɴ ᴏᴛᴏᴍᴀᴛɪs 〆ㅤㅤ \n"
-    "    〆 ᴀʟʙʏ - ᴜꜱᴇʀʙᴏᴛ 〆    \n"
+    "ㅤ     ㅤ〆 ᴘᴇsᴀɴ ᴏᴛᴏᴍᴀᴛɪs 〆ㅤㅤ \n"
+    "             〆 ᴀʟʙʏ - ᴘʏʀᴏʙᴏᴛ 〆    \n"
     "╰╌╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╌╯\n"
 )
 
