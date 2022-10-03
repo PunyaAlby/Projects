@@ -29,7 +29,7 @@ DEF_UNAPPROVED_MSG = (
     "► Jangan Spam Chat atau anda akan otomatis diblokir.\n"
     "╭╌╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╌╮\n"
     "ㅤ     ㅤ〆 ᴘᴇsᴀɴ ᴏᴛᴏᴍᴀᴛɪs 〆ㅤㅤ \n"
-    "             〆 ᴀʟʙʏ - ᴘʏʀᴏʙᴏᴛ 〆    \n"
+    "           〆 ᴀʟʙʏ - ᴜꜱᴇʀʙᴏᴛ 〆    \n"
     "╰╌╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╾╌╯\n"
 )
 
