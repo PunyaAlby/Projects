@@ -64,7 +64,7 @@ pacaralby = [
 ]
 
 userbot = [
-    "**ON**",
+    "`ALBY-USERBOT AKTIF`📌",
 ]
 
 
