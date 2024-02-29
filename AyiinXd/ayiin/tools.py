@@ -49,6 +49,8 @@ from yt_dlp import YoutubeDL
 from AyiinXd import LOGS, SUDO_USERS, bot
 from AyiinXd.ayiin.format import md_to_text, paste_message
 
+from .FastTelethon import download_file as downloadable
+
 
 def deEmojify(inputString):
     return get_emoji_regexp().sub("", inputString)
@@ -81,6 +83,25 @@ def media_type(message):
         if message.document:
             return "Document"
     return None
+
+
+async def downloader(filename, file, event, taime, msg):
+    with open(filename, "wb") as fk:
+        result = await downloadable(
+            client=event.client,
+            location=file,
+            out=fk,
+            progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
+                progress(
+                    d,
+                    t,
+                    event,
+                    taime,
+                    msg,
+                ),
+            ),
+        )
+    return result
 
 
 def humanbytes(size: Union[int, float]) -> str:
@@ -286,9 +307,7 @@ async def check_media(reply_message):
         data = reply_message.media.document
     else:
         return False
-    if not data or data is None:
-        return False
-    return data
+    return False if not data or data is None else data
 
 
 async def run_cmd(cmd: list) -> Tuple[bytes, bytes]:
@@ -320,8 +339,8 @@ async def bash(cmd):
 
 def post_to_telegraph(title, html_format_content):
     post_client = TelegraphPoster(use_api=True)
-    auth_name = "Ayiin-Userbot"
-    auth_url = "https://github.com/AyiinXd/Ayiin-Userbot"
+    auth_name = "ALBY-Userbot"
+    auth_url = "https://github.com/PunyaAlby/ALBY-Userbot"
     post_client.create_api_token(auth_name)
     post_page = post_client.post(
         title=title,

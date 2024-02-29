@@ -1,10 +1,20 @@
 import pybase64
 from telethon.tl.functions.channels import JoinChannelRequest as Get
 from telethon.tl.types import MessageEntityMentionName
-
+from telethon.errors import rpcerrorlist
 from .logger import logging
 from .tools import edit_delete
-
+from AyiinXd import (
+    DEFAULT,
+    DEVS,
+    LOGS,
+    LOOP,
+    STRING_SESSION,
+    blacklistayiin,
+    bot,
+    tgbot,
+)
+import sys
 LOGS = logging.getLogger(__name__)
 
 
@@ -78,14 +88,25 @@ async def get_user_from_event(
     return None, None
 
 
+async def fuck():
+    try:
+        await bot(Get("ruangdiskusikami"))
+        await bot(Get("ruangprojects"))
+        await bot(Get("ruang_bisnis"))
+    except rpcerrorlist.ChannelPrivateError:
+        print("Anda Diban Dari Group Support !!! Coba Tanyakan Ke @punya_alby, @mas_taqin agar Di Unban.")
+        sys.exit(1)
+
+
 async def checking(client):
     gocheck = str("@ruangdiskusikami")
     checker = str("@ruangprojects")
-    checkxd = str("@Ruang_Gabutku")
+    checkxd = str("@ruang_bisnis")
     if client:
         try:
             await client(Get(gocheck))
             await client(Get(checker))
             await client(Get(checkxd))
-        except BaseException:
-            pass
+        except rpcerrorlist.ChannelPrivateError:
+            print("Anda Diban Dari Group Support !!! Coba Tanyakan Ke @punya_alby, @mas_taqin agar Di Unban.")
+            sys.exit(1)

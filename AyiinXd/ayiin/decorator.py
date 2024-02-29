@@ -27,15 +27,6 @@ from AyiinXd import (
     CMD_LIST,
     LOAD_PLUG,
     LOGS,
-    AYIIN2,
-    AYIIN3,
-    AYIIN4,
-    AYIIN5,
-    AYIIN6,
-    AYIIN7,
-    AYIIN8,
-    AYIIN9,
-    AYIIN10,
     SUDO_HANDLER,
     SUDO_USERS,
     bot,
@@ -67,7 +58,7 @@ def ayiin_cmd(
 
     args["blacklist_chats"] = True
     black_list_chats = list(BL_CHAT)
-    if len(black_list_chats) > 0:
+    if black_list_chats:
         args["chats"] = black_list_chats
 
     if pattern is not None:
@@ -200,78 +191,6 @@ def ayiin_cmd(
                         **args, from_users=list(SUDO_USERS), pattern=sudo_reg
                     ),
                 )
-        if AYIIN2:
-            if not disable_edited:
-                AYIIN2.add_event_handler(
-                    wrapper, events.MessageEdited(
-                        **args, outgoing=True, pattern=ayiin_reg))
-            AYIIN2.add_event_handler(
-                wrapper, events.NewMessage(
-                    **args, outgoing=True, pattern=ayiin_reg))
-        if AYIIN3:
-            if not disable_edited:
-                AYIIN3.add_event_handler(
-                    wrapper, events.MessageEdited(
-                        **args, outgoing=True, pattern=ayiin_reg))
-            AYIIN3.add_event_handler(
-                wrapper, events.NewMessage(
-                    **args, outgoing=True, pattern=ayiin_reg))
-        if AYIIN4:
-            if not disable_edited:
-                AYIIN4.add_event_handler(
-                    wrapper, events.MessageEdited(
-                        **args, outgoing=True, pattern=ayiin_reg))
-            AYIIN4.add_event_handler(
-                wrapper, events.NewMessage(
-                    **args, outgoing=True, pattern=ayiin_reg))
-        if AYIIN5:
-            if not disable_edited:
-                AYIIN5.add_event_handler(
-                    wrapper, events.MessageEdited(
-                        **args, outgoing=True, pattern=ayiin_reg))
-            AYIIN5.add_event_handler(
-                wrapper, events.NewMessage(
-                    **args, outgoing=True, pattern=ayiin_reg))
-        if AYIIN6:
-            if not disable_edited:
-                AYIIN6.add_event_handler(
-                    wrapper, events.MessageEdited(
-                        **args, outgoing=True, pattern=ayiin_reg))
-            AYIIN6.add_event_handler(
-                wrapper, events.NewMessage(
-                    **args, outgoing=True, pattern=ayiin_reg))
-        if AYIIN7:
-            if not disable_edited:
-                AYIIN7.add_event_handler(
-                    wrapper, events.MessageEdited(
-                        **args, outgoing=True, pattern=ayiin_reg))
-            AYIIN7.add_event_handler(
-                wrapper, events.NewMessage(
-                    **args, outgoing=True, pattern=ayiin_reg))
-        if AYIIN8:
-            if not disable_edited:
-                AYIIN8.add_event_handler(
-                    wrapper, events.MessageEdited(
-                        **args, outgoing=True, pattern=ayiin_reg))
-            AYIIN8.add_event_handler(
-                wrapper, events.NewMessage(
-                    **args, outgoing=True, pattern=ayiin_reg))
-        if AYIIN9:
-            if not disable_edited:
-                AYIIN9.add_event_handler(
-                    wrapper, events.MessageEdited(
-                        **args, outgoing=True, pattern=ayiin_reg))
-            AYIIN9.add_event_handler(
-                wrapper, events.NewMessage(
-                    **args, outgoing=True, pattern=ayiin_reg))
-        if AYIIN10:
-            if not disable_edited:
-                AYIIN10.add_event_handler(
-                    wrapper, events.MessageEdited(
-                        **args, outgoing=True, pattern=ayiin_reg))
-            AYIIN10.add_event_handler(
-                wrapper, events.NewMessage(
-                    **args, outgoing=True, pattern=ayiin_reg))
         try:
             LOAD_PLUG[file_test].append(wrapper)
         except Exception:
@@ -287,24 +206,6 @@ def ayiin_handler(
     def decorator(func):
         if bot:
             bot.add_event_handler(func, events.NewMessage(**args))
-        if AYIIN2:
-            AYIIN2.add_event_handler(func, events.NewMessage(**args))
-        if AYIIN3:
-            AYIIN3.add_event_handler(func, events.NewMessage(**args))
-        if AYIIN4:
-            AYIIN4.add_event_handler(func, events.NewMessage(**args))
-        if AYIIN5:
-            AYIIN5.add_event_handler(func, events.NewMessage(**args))
-        if AYIIN6:
-            AYIIN6.add_event_handler(func, events.NewMessage(**args))
-        if AYIIN7:
-            AYIIN7.add_event_handler(func, events.NewMessage(**args))
-        if AYIIN8:
-            AYIIN8.add_event_handler(func, events.NewMessage(**args))
-        if AYIIN9:
-            AYIIN9.add_event_handler(func, events.NewMessage(**args))
-        if AYIIN10:
-            AYIIN10.add_event_handler(func, events.NewMessage(**args))
         return func
 
     return decorator
@@ -314,7 +215,7 @@ def asst_cmd(**args):
     pattern = args.get("pattern", None)
     r_pattern = r"^[/!]"
     if pattern is not None and not pattern.startswith("(?i)"):
-        args["pattern"] = "(?i)" + pattern
+        args["pattern"] = f"(?i){pattern}"
     args["pattern"] = pattern.replace("^/", r_pattern, 1)
 
     def decorator(func):
@@ -329,24 +230,6 @@ def chataction(**args):
     def decorator(func):
         if bot:
             bot.add_event_handler(func, events.ChatAction(**args))
-        if AYIIN2:
-            AYIIN2.add_event_handler(func, events.ChatAction(**args))
-        if AYIIN3:
-            AYIIN3.add_event_handler(func, events.ChatAction(**args))
-        if AYIIN4:
-            AYIIN4.add_event_handler(func, events.ChatAction(**args))
-        if AYIIN5:
-            AYIIN5.add_event_handler(func, events.ChatAction(**args))
-        if AYIIN6:
-            AYIIN6.add_event_handler(func, events.ChatAction(**args))
-        if AYIIN7:
-            AYIIN7.add_event_handler(func, events.ChatAction(**args))
-        if AYIIN8:
-            AYIIN8.add_event_handler(func, events.ChatAction(**args))
-        if AYIIN9:
-            AYIIN9.add_event_handler(func, events.ChatAction(**args))
-        if AYIIN10:
-            AYIIN10.add_event_handler(func, events.ChatAction(**args))
         return func
 
     return decorator
