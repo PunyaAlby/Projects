@@ -14,7 +14,7 @@ from telethon import Button
 from AyiinXd import BOT_VER as version
 from AyiinXd import BOTLOG_CHATID, BOTLOG, LOGS
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import AYIIN2, AYIIN3, AYIIN4, AYIIN5, AYIIN6, AYIIN7, AYIIN8, AYIIN9, AYIIN10, bot, branch, tgbot
+from AyiinXd import bot, branch, tgbot
 from AyiinXd.ayiin import ayiin_version as py_ver
 from AyiinXd.ayiin import HOSTED_ON, checking
 
@@ -23,9 +23,9 @@ MSG_ON = """
 ╭╼┅━━━━━╍━━━━━┅╾
 ├▹ ᴀʟʙʏ Vᴇʀsɪᴏɴ - {} •[{}]•
 ├▹ Usᴇʀʙᴏᴛ Vᴇʀsɪᴏɴ - {}
-├▹ @{}
-├▹ **Ketik** `{}help` **Untuk Melihat Informasi Module**
-├▹ **Ketik** `{}alive` **Untuk Mengecek Bot**
+├▹ @Punya_Alby - Userbot
+├▹ Ketik `.help` Untuk Melihat Informasi Module
+├▹ Ketik `.alive` Untuk Mengecek Bot
 ╰╼┅━━━━━╍━━━━━┅╾
 **Powered By:** @ruangprojects
 """
@@ -40,7 +40,7 @@ async def startupmessage(tgbot):
             await tgbot.send_file(
                 BOTLOG_CHATID,
                 "https://telegra.ph/file/cbe826936d4de9ec1838a.jpg",
-                caption=MSG_ON.format(py_ver, HOSTED_ON, version, branch, cmd, cmd, cmd),
+                caption=MSG_ON.format(py_ver, HOSTED_ON, version, branch, cmd),
                 buttons=[(Button.url("ɢʀᴏᴜᴘ ꜱᴜᴘᴘᴏʀᴛ", "https://t.me/ruangdiskusikami"),)],
             )
     except Exception as e:
@@ -70,121 +70,13 @@ async def ayiin_userbot_on():
         if bot and tgbot:
             AyiinUBOT = await tgbot.get_me()
             BOT_USERNAME = AyiinUBOT.username
-            await bot(EditAdminRequest(BOTLOG_CHATID, BOT_USERNAME, new_rights, "Assɪsᴛᴀɴᴛ Aʏɪɪɴ"))
+            await bot(EditAdminRequest(BOTLOG_CHATID, BOT_USERNAME, new_rights, "🇦​​🇸​​🇸​​🇮​​🇸​​🇹​​🇦​​🇳​​🇹​ ​🇦​​🇱​​🇧​​🇾​"))
             await asyncio.sleep(3)
     except BaseException:
         pass
     try:
         if bot:
             await checking(bot)
-            await asyncio.sleep(3)
-            if BOTLOG_CHATID != 0:
-                await startupmessage(tgbot)
-    except Exception as e:
-        LOGS.info(str(e))
-    try:
-        await bot(Addbot(int(BOTLOG_CHATID), [BOT_USERNAME]))
-    except BaseException:
-        pass
-    try:
-        if AYIIN2:
-            await checking(AYIIN2)
-            await asyncio.sleep(3)
-            if BOTLOG_CHATID != 0:
-                await startupmessage(tgbot)
-    except Exception as e:
-        LOGS.info(str(e))
-    try:
-        await bot(Addbot(int(BOTLOG_CHATID), [BOT_USERNAME]))
-    except BaseException:
-        pass
-    try:
-        if AYIIN3:
-            await checking(AYIIN3)
-            await asyncio.sleep(3)
-            if BOTLOG_CHATID != 0:
-                await startupmessage(tgbot)
-    except Exception as e:
-        LOGS.info(str(e))
-    try:
-        await bot(Addbot(int(BOTLOG_CHATID), [BOT_USERNAME]))
-    except BaseException:
-        pass
-    try:
-        if AYIIN4:
-            await checking(AYIIN4)
-            await asyncio.sleep(3)
-            if BOTLOG_CHATID != 0:
-                await startupmessage(tgbot)
-    except Exception as e:
-        LOGS.info(str(e))
-    try:
-        await bot(Addbot(int(BOTLOG_CHATID), [BOT_USERNAME]))
-    except BaseException:
-        pass
-    try:
-        if AYIIN5:
-            await checking(AYIIN5)
-            await asyncio.sleep(3)
-            if BOTLOG_CHATID != 0:
-                await startupmessage(tgbot)
-    except Exception as e:
-        LOGS.info(str(e))
-    try:
-        await bot(Addbot(int(BOTLOG_CHATID), [BOT_USERNAME]))
-    except BaseException:
-        pass
-    try:
-        if AYIIN6:
-            await checking(AYIIN6)
-            await asyncio.sleep(3)
-            if BOTLOG_CHATID != 0:
-                await startupmessage(tgbot)
-    except Exception as e:
-        LOGS.info(str(e))
-    try:
-        await bot(Addbot(int(BOTLOG_CHATID), [BOT_USERNAME]))
-    except BaseException:
-        pass
-    try:
-        if AYIIN7:
-            await checking(AYIIN7)
-            await asyncio.sleep(3)
-            if BOTLOG_CHATID != 0:
-                await startupmessage(tgbot)
-    except Exception as e:
-        LOGS.info(str(e))
-    try:
-        await bot(Addbot(int(BOTLOG_CHATID), [BOT_USERNAME]))
-    except BaseException:
-        pass
-    try:
-        if AYIIN8:
-            await checking(AYIIN8)
-            await asyncio.sleep(3)
-            if BOTLOG_CHATID != 0:
-                await startupmessage(tgbot)
-    except Exception as e:
-        LOGS.info(str(e))
-    try:
-        await bot(Addbot(int(BOTLOG_CHATID), [BOT_USERNAME]))
-    except BaseException:
-        pass
-    try:
-        if AYIIN9:
-            await checking(AYIIN9)
-            await asyncio.sleep(3)
-            if BOTLOG_CHATID != 0:
-                await startupmessage(tgbot)
-    except Exception as e:
-        LOGS.info(str(e))
-    try:
-        await bot(Addbot(int(BOTLOG_CHATID), [BOT_USERNAME]))
-    except BaseException:
-        pass
-    try:
-        if AYIIN10:
-            await checking(AYIIN10)
             await asyncio.sleep(3)
             if BOTLOG_CHATID != 0:
                 await startupmessage(tgbot)
