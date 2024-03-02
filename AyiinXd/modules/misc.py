@@ -140,11 +140,10 @@ async def okgoogle(img):
     if os.path.isfile("okgoogle.png"):
         os.remove("okgoogle.png")
     message = await img.get_reply_message()
-    if message and message.media:
-        photo = io.BytesIO()
-        await img.client.download_media(message, photo)
-    else:
+    if not message or not message.media:
         return await eor(img, get_string("failed9"))
+    photo = io.BytesIO()
+    await img.client.download_media(message, photo)
     if photo:
         xx = await eor(img, get_string("com_1"))
         try:
@@ -175,7 +174,7 @@ async def okgoogle(img):
         else:
             return await xx.edit(get_string("rvrse_2"))
         os.remove(name)
-        match = await ParseSauce(fetchUrl + "&preferences?hl=en&fg=1#languages")
+        match = await ParseSauce(f"{fetchUrl}&preferences?hl=en&fg=1#languages")
         guess = match["best_guess"]
         imgspage = match["similar_images"]
         if guess and imgspage:
@@ -276,7 +275,7 @@ CMD_HELP.update(
     {
         "sleep": f"**Plugin : **`sleep`\
         \n\n  »  **Perintah :** `{cmd}sleep`\
-        \n  »  **Kegunaan : **Biarkan Ayiin-Userbot tidur selama beberapa detik \
+        \n  »  **Kegunaan : **Biarkan Uputt-Userbot tidur selama beberapa detik \
     "
     }
 )
@@ -284,11 +283,11 @@ CMD_HELP.update(
 
 CMD_HELP.update(
     {
-        "repo": f"**Plugin : **`Repository Ayiin-Userbot`\
+        "repo": f"**Plugin : **`Repository Uputt-Userbot`\
         \n\n  »  **Perintah :** `{cmd}repo`\
-        \n  »  **Kegunaan : **Menampilan link Repository Ayiin-Userbot\
+        \n  »  **Kegunaan : **Menampilan link Repository Uputt-Userbot\
         \n\n  »  **Perintah :** `{cmd}string`\
-        \n  »  **Kegunaan : **Menampilan link String Ayiin-Userbot\
+        \n  »  **Kegunaan : **Menampilan link String Uputt-Userbot\
     "
     }
 )
@@ -306,7 +305,7 @@ CMD_HELP.update(
 
 CMD_HELP.update(
     {
-        "restart": f"**Plugin : **`Restart Ayiin-Userbot`\
+        "restart": f"**Plugin : **`Restart Uputt-Userbot`\
         \n\n  »  **Perintah :** `{cmd}restart`\
         \n  »  **Kegunaan : **Untuk Merestart userbot.\
     "

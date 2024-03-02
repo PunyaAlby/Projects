@@ -11,7 +11,7 @@ from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, LOGS, bot
 from AyiinXd.modules.sql_helper import no_log_pms_sql
 from AyiinXd.modules.sql_helper.globals import addgvar, gvarstatus
-from AyiinXd.modules.vcplugin import vcmention
+from AyiinXd.modules.carbon import vcmention
 from AyiinXd.ayiin import _format, ayiin_cmd, edit_delete, edit_or_reply
 from AyiinXd.ayiin.tools import media_type
 
@@ -180,10 +180,7 @@ async def set_pmlog(event):
         h_type = False
     elif input_str == "on":
         h_type = True
-    if gvarstatus("PMLOG") and gvarstatus("PMLOG") == "false":
-        PMLOG = False
-    else:
-        PMLOG = True
+    PMLOG = not gvarstatus("PMLOG") or gvarstatus("PMLOG") != "false"
     if PMLOG:
         if h_type:
             await edit_or_reply(event, "**PM LOG Sudah Diaktifkan**")
@@ -210,10 +207,7 @@ async def set_gruplog(event):
         h_type = False
     elif input_str == "on":
         h_type = True
-    if gvarstatus("GRUPLOG") and gvarstatus("GRUPLOG") == "false":
-        GRUPLOG = False
-    else:
-        GRUPLOG = True
+    GRUPLOG = not gvarstatus("GRUPLOG") or gvarstatus("GRUPLOG") != "false"
     if GRUPLOG:
         if h_type:
             await edit_or_reply(event, "**Group Log Sudah Diaktifkan**")
