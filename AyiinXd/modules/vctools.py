@@ -10,9 +10,10 @@
 #
 # Kalo mau ngecopas, jangan hapus credit ya goblok
 
-from pytgcalls import StreamType
-from pytgcalls.exceptions import AlreadyJoinedError
-from pytgcalls.types.input_stream import InputAudioStream, InputStream
+import asyncio
+
+from pytgcalls.exceptions import NotConnectedError
+
 from telethon.tl.functions.channels import GetFullChannelRequest as getchat
 from telethon.tl.functions.phone import CreateGroupCallRequest as startvc
 from telethon.tl.functions.phone import DiscardGroupCallRequest as stopvc
@@ -21,10 +22,12 @@ from telethon.tl.functions.phone import GetGroupCallRequest as getvc
 from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
 
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import CMD_HELP, call_py, VVIP
-from AyiinXd.events import register
+from AyiinXd import CMD_HELP, VVIP, bot
 from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from AyiinXd.events import register
+from AyiinXd.ayiin.pytgcalls import Ayiin, CLIENTS, VIDEO_ON
 from Stringyins import get_string
+
 
 
 async def get_call(event):
@@ -33,28 +36,24 @@ async def get_call(event):
     return xx.call
 
 
-def user_list(l, n):
-    for i in range(0, len(l), n):
-        yield l[i: i + n]
-
-
 @ayiin_cmd(pattern="startvc$", group_only=True)
 @register(pattern=r"^\.startvcs$", sudo=True)
 async def start_voice(c):
-    xd = await eor(c, get_string("com_1"))
+    xnxx = await eor(c, get_string("com_1"))
     me = await c.client.get_me()
     chat = await c.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
 
     if not admin and not creator:
-        await eod(xd, get_string("stvc_1").format(me.first_name))
+        await eod(xnxx, get_string("stvc_1").format(me.first_name))
         return
     try:
-        await c.client(startvc(c.chat_id))
-        await xd.edit(get_string("stvc_2"))
+        Xd = Ayiin(c.chat_id)
+        await Xd.make_vc_active()
+        await xnxx.edit(get_string("stvc_2"))
     except Exception as ex:
-        await eod(xd, get_string("erro_1").format(e))
+        await eod(xnxx, get_string("error_1").format(e))
 
 
 @ayiin_cmd(pattern="stopvc$", group_only=True)
@@ -119,78 +118,127 @@ async def change_title(e):
 
 @ayiin_cmd(pattern="joinvc(?: |$)(.*)", group_only=True)
 @register(incoming=True, from_users=VVIP, pattern=r"^Joinvcs$")
-async def _(a):
-    sender = await a.get_sender()
-    yins = await a.client.get_me()
+async def _(event):
+    sender = await event.get_sender()
+    yins = await event.client.get_me()
     if sender.id != yins.id:
-        Ayiin = await a.reply(get_string("com_1"))
+        AyiinXd = await event.reply(get_string("com_1"))
     else: 
-        Ayiin = await eor(a, get_string("com_1"))
-    if len(a.text.split()) > 1:
-        chat_id = a.text.split()[1]
+        AyiinXd = await eor(event, get_string("com_1"))
+    if len(event.text.split()) > 1:
+        chat = event.text.split()[1]
         try:
-            chat_id = await a.client.get_peer_id(int(chat_id))
+            chat = await event.client.parse_id(chat)
         except Exception as e:
-            return await Ayiin.edit(get_string("error_1").format(e))
+            return await eod(AyiinXd, get_string("error_1").format(str(e)))
     else:
-        chat_id = a.chat_id
-    file = "./AyiinXd/resources/ayiin.mp3"
-    if chat_id:
-        try:
-            await call_py.join_group_call(
-                chat_id,
-                InputStream(
-                    InputAudioStream(
-                        file,
-                    ),
-                ),
-                stream_type=StreamType().pulse_stream,
-            )
-            await Ayiin.edit(get_string("jovc_1").format(yins.first_name, yins.id, chat_id)
-            )
-        except AlreadyJoinedError:
-            await call_py.leave_group_call(chat_id)
-            await eod(Ayiin, get_string("jovc_2").format(cmd)
-            )
-        except Exception as e:
-            await Ayiin.edit(get_string("error_1").format(e))
+        chat = event.chat_id
+    Xd = Ayiin(chat)
+    if not Xd.group_call.is_connected:
+        await Xd.group_call.join(chat)
+        await AyiinXd.edit(get_string("jovc_1").format(yins.first_name, yins.id, chat)
+        )
+        await asyncio.sleep(1)
+        await Xd.group_call.set_is_mute(False)
+        await asyncio.sleep(1)
+        await Xd.group_call.set_is_mute(True)
+
 
 
 @ayiin_cmd(pattern="leavevc(?: |$)(.*)", group_only=True)
 @register(incoming=True, from_users=VVIP, pattern=r"^Leavevcs$")
-async def vc_end(y):
-    sender = await y.get_sender()
-    yins = await y.client.get_me()
+async def _(event):
+    sender = await event.get_sender()
+    yins = await event.client.get_me()
     if sender.id != yins.id:
-        Ayiin = await y.reply(get_string("com_1"))
+        AyiinXd = await event.reply(get_string("com_1"))
     else: 
-        Ayiin = await eor(y, get_string("com_1"))
-    if len(y.text.split()) > 1:
-        chat_id = y.text.split()[1]
+        AyiinXd = await eor(event, get_string("com_1"))
+    if len(event.text.split()) > 1:
+        chat = event.text.split()[1]
         try:
-            chat_id = await y.client.get_peer_id(int(chat_id))
+            chat = await event.client.parse_id(chat)
         except Exception as e:
-            return await Ayiin.edit(get_string("error_1").format(e))
+            return await eod(Ayiin, get_string("error_1").format(str(e)))
     else:
-        chat_id = y.chat_id
-    if chat_id:
+        chat = event.chat_id
+    Xd = Ayiin(chat)
+    await Xd.group_call.leave()
+    if CLIENTS.get(chat):
+        del CLIENTS[chat]
+    if VIDEO_ON.get(chat):
+        del VIDEO_ON[chat]
+    await AyiinXd.edit(get_string("levc_1").format(yins.first_name, yins.id, chat))
+
+
+@ayiin_cmd(pattern="rejoin$")
+async def rejoiner(event):
+    if len(event.text.split()) > 1:
+        chat = event.text.split()[1]
         try:
-            await call_py.leave_group_call(chat_id)
-            await eod(Ayiin, get_string("levc_1").format(yins.first_name, yins.id, chat_id)
-            )
+            chat = await event.client.parse_id(chat)
         except Exception as e:
-            await Ayiin.edit(get_string("error_1").format(e))
+            return await event.eor(get_string("error_1").format(str(e)))
+    else:
+        chat = event.chat_id
+    Xd = Ayiin(chat)
+    try:
+        await Xd.group_call.reconnect()
+    except NotConnectedError:
+        return await event.eor("Anda belum terhubung ke obrolan suara!")
+    await event.eor("`Bergabung kembali dengan obrolan suara ini.`")
+
+
+@ayiin_cmd(pattern="volume$")
+async def volume_setter(event):
+    if len(event.text.split()) <= 1:
+        return await event.eor("`Harap tentukan volume dari 1 hingga 200!`")
+    inp = event.text.split()
+    if inp[1].startswith(("@","-")):
+        chat = inp[1]
+        vol = int(inp[2])
+        try:
+            chat = await event.client.parse_id(chat)
+        except Exception as e:
+            return await event.eor(get_string("error_1").format(str(e)))
+    elif inp[1].isdigit() and len(inp) == 2:
+        vol = int(inp[1])
+        chat = event.chat_id
+    if vol:
+        Xd = Ayiin(chat)
+        await Xd.group_call.set_my_volume(int(vol))
+        if vol > 200:
+            vol = 200
+        elif vol < 1:
+            vol = 1
+        return await event.eor(get_string("volmp_1").format(vol))
+
+
+@ayiin_cmd(pattern="skip$")
+async def skipper(event):
+    if len(event.text.split()) > 1:
+        chat = event.text.split()[1]
+        try:
+            chat = await event.client.parse_id(chat)
+        except Exception as e:
+            return await event.eor("**ERROR:**\n{}".format(str(e)))
+    else:
+        chat = event.chat_id
+    Xd = Ayiin(chat, event)
+    await Xd.play_from_queue()
 
 
 CMD_HELP.update(
     {
         "vctools": f"**Plugin : **`vctools`\
         \n\n  »  **Perintah :** `{cmd}startvc`\
-        \n  »  **Kegunaan : **Untuk Memulai voice chat group\
+        \n  »  **Kegunaan : **Untuk Membuka voice chat group\
         \n\n  »  **Perintah :** `{cmd}stopvc`\
-        \n  »  **Kegunaan : **Untuk Memberhentikan voice chat group\
+        \n  »  **Kegunaan : **Untuk Menutup voice chat group\
         \n\n  »  **Perintah :** `{cmd}joinvc` atau `{cmd}joinvc` <chatid/username gc>\
         \n  »  **Kegunaan : **Untuk Bergabung ke voice chat group\
+        \n\n  »  **Perintah :** `{cmd}rejoin` atau `{cmd}joinvc` <chatid/username gc>\
+        \n  »  **Kegunaan : **Untuk Bergabung kembali ke voice chat group\
         \n\n  »  **Perintah :** `{cmd}leavevc` atau `{cmd}leavevc` <chatid/username gc>\
         \n  »  **Kegunaan : **Untuk Turun dari voice chat group\
         \n\n  »  **Perintah :** `{cmd}vctitle` <title vcg>\
