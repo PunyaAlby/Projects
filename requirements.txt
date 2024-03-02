@@ -10,8 +10,8 @@ cloudscraper
 covid
 cowpy
 deezloader
-dnspython==2.3.0
-emoji
+dnspython
+emoji==1.7.0
 faker
 ffmpeg-python
 fontTools
@@ -47,7 +47,7 @@ pendulum
 pillow
 psutil
 psycopg2-binary
-py-tgcalls
+pytgcalls==3.0.0.dev22
 pyaztro
 pybase64
 pyfiglet
@@ -75,7 +75,7 @@ speedtest-cli
 sqlalchemy-json
 sqlalchemy==1.3.23
 telegraph
-telethon==1.27.0
+https://github.com/New-dev0/Telethon/archive/platy.zip
 telethon-session-sqlalchemy
 telethon-tgcrypto
 urbandict
