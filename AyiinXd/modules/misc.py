@@ -106,7 +106,7 @@ async def repo_is_here(event):
     ayiin = await eor(event, "🤖")
     sleep(3)
     await ayiin.edit(get_string("repo_1")
-    )
+                     )
 
 
 @ayiin_cmd(pattern="raw$")
@@ -170,7 +170,7 @@ async def okgoogle(img):
         fetchUrl = response.headers["Location"]
         if response != 400:
             await xx.edit(get_string("rvrse_1")
-            )
+                          )
         else:
             return await xx.edit(get_string("rvrse_2"))
         os.remove(name)
@@ -197,7 +197,7 @@ async def okgoogle(img):
         except TypeError:
             pass
         await xx.edit(get_string("rvrse_5").format(guess, fetchUrl, imgspage)
-        )
+                      )
 
 
 async def ParseSauce(googleurl):

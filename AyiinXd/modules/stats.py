@@ -94,10 +94,12 @@ async def stats(
     response += get_string("stats_7").format(broadcast_channels)
     response += get_string("stats_8").format(admin_in_groups)
     response += get_string("stats_9").format(creator_in_groups)
-    response += get_string("stats_10").format(admin_in_groups - creator_in_groups)
+    response += get_string("stats_10").format(admin_in_groups -
+                                              creator_in_groups)
     response += get_string("stats_11").format(admin_in_broadcast_channels)
     response += get_string("stats_12").format(creator_in_channels)
-    response += get_string("stats_13").format(admin_in_broadcast_channels - creator_in_channels)
+    response += get_string("stats_13").format(
+        admin_in_broadcast_channels - creator_in_channels)
     response += get_string("stats_14").format(unread)
     response += get_string("stats_15").format(unread_mentions)
     response += get_string("stats_16").format(ct)

@@ -91,7 +91,7 @@ async def download(target_file):
                 LOGS.info(str(e))
         if downloader.isSuccessful():
             await xx.edit(get_string("updo_1").format(downloaded_file_name)
-            )
+                          )
         else:
             await xx.edit(get_string("updo_2").format(url))
     elif replied:
@@ -141,10 +141,10 @@ async def download(target_file):
         else:
             try:
                 await target_file.edit(get_string("updo_4").format(result.name, dl_time)
-                )
+                                       )
             except AttributeError:
                 await target_file.edit(get_string("updo_4").format(result, dl_time)
-                )
+                                       )
     else:
         await xx.edit(get_string("updo_5").format(cmd))
 
@@ -310,8 +310,8 @@ async def upload(event):
             await xx.delete()
             up_time = (datetime.now() - start_time).seconds
             await xx.respond(get_string("updo_10")
-                .format(len(lst_files), input_str, up_time)
-            )
+                             .format(len(lst_files), input_str, up_time)
+                             )
     else:
         await xx.edit(get_string("updo_11"))
 

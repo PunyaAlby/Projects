@@ -56,7 +56,7 @@ async def gspide(rk):
                 await rk.client.edit_permissions(i, user, send_messages=True)
                 a += 1
                 await rkp.edit(get_string("gkick_3").format(a)
-                )
+                               )
 
             except BaseException:
                 b += 1
@@ -64,7 +64,7 @@ async def gspide(rk):
         await rkp.edit(get_string("gban_8"))
 
     return await rkp.edit(get_string("gkick_4").format(user.first_name, user.id, a)
-    )
+                          )
 
 
 CMD_HELP.update(

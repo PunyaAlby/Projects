@@ -48,7 +48,7 @@ async def kickmeall(event):
             except BaseException:
                 er += 1
     await Yins.edit(get_string("kikme_4").format(done, er)
-    )
+                    )
 
 
 CMD_HELP.update(

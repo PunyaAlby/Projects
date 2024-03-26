@@ -42,7 +42,6 @@ def multiayiin():
     if 5089916692 not in DEFAULT:
         LOGS.warning(EOL.format(version))
         sys.exit(1)
-    failed = 0
     if STRING_SESSION:
         try:
             bot.start()
@@ -59,7 +58,6 @@ def multiayiin():
                 sys.exit(1)
         except Exception as e:
             LOGS.info(str(e))
-
 
     if BOT_TOKEN:
         try:

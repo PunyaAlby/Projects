@@ -26,7 +26,7 @@ async def gen_chlog(repo, diff):
 
 async def print_changelogs(xx, ac_br, changelog):
     changelog_str = (get_string("upd_3").format(ac_br, changelog)
-    )
+                     )
     if len(changelog_str) > 4096:
         await eor(xx, get_string("upd_4"))
         with open("output.txt", "w+") as file:
@@ -47,7 +47,7 @@ async def deploy(xx, repo, ups_rem, ac_br, txt):
         heroku_applications = heroku.apps()
         if HEROKU_APP_NAME is None:
             await eor(xx, get_string("upd_6")
-            )
+                      )
             repo.__del__()
             return
         for app in heroku_applications:
@@ -56,7 +56,7 @@ async def deploy(xx, repo, ups_rem, ac_br, txt):
                 break
         if heroku_app is None:
             await eor(xx, get_string("upd_5").format(txt)
-            )
+                      )
             return repo.__del__()
         try:
             from AyiinXd.modules.sql_helper.globals import addgvar, delgvar
@@ -135,7 +135,7 @@ async def upstream(event):
     force_update = False
     try:
         txt = (get_string("upd_2")
-        )
+               )
         repo = Repo()
     except NoSuchPathError as error:
         await xx.edit(get_string("upd_19").format(txt, error))
@@ -146,7 +146,7 @@ async def upstream(event):
     except InvalidGitRepositoryError as error:
         if conf is None:
             return await xx.edit(get_string("upd_11").format(error, cmd)
-            )
+                                 )
         repo = Repo.init()
         origin = repo.create_remote("upstream", off_repo)
         origin.fetch()
@@ -185,7 +185,7 @@ async def upstream(event):
         await print_changelogs(xx, ac_br, changelog)
         await xx.delete()
         return await event.respond(get_string("upd_17").format(cmd)
-        )
+                                   )
 
     if force_update:
         await xx.edit(get_string("upd_16"))
@@ -198,7 +198,7 @@ async def upstream(event):
                 and HEROKU_API_KEY is not None
             ):
                 return await xx.edit(get_string("upd_18").format(cmd)
-                )
+                                     )
         await xx.edit(get_string("upd_15"))
         await update(xx, repo, ups_rem, ac_br)
 

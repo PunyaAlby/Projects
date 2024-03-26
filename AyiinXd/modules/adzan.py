@@ -22,7 +22,7 @@ async def get_adzan(adzan):
     request = requests.get(url)
     if request.status_code != 200:
         return await eor(adzan, get_string("adzan1").format(LOCATION), time=120
-                               )
+                         )
     result = json.loads(request.text)
     catresult = f"<b>Jadwal Shalat Hari Ini:</b>\
             \n<b>📆 Tanggal </b><code>{result['items'][0]['date_for']}</code>\

@@ -21,7 +21,6 @@ from AyiinXd.modules.vcplugin import vcmention
 from Stringyins import get_string
 
 
-
 all_col = [
     "Black",
     "Navy",

@@ -34,7 +34,13 @@ async def unsavegif(event, spammer):
         LOGS.info(f"{e}")
 
 
-async def spam_function(event, spammer, xnxx, sleeptimem, sleeptimet, DelaySpam=False):
+async def spam_function(
+        event,
+        spammer,
+        xnxx,
+        sleeptimem,
+        sleeptimet,
+        DelaySpam=False):
     counter = int(xnxx[0])
     if len(xnxx) == 2:
         spam_message = str(xnxx[1])

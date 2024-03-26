@@ -52,7 +52,7 @@ async def gengkapak(e):
                          json={"content": data}) .json() .get("result") .get("key"))
     url = f"https://nekobin.com/raw/{key}"
     caption = (get_string("tose_5").format(query, url)
-    )
+               )
     os.remove(tsfileloc)
     await e.edit(caption, link_preview=False)
 

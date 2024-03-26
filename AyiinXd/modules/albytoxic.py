@@ -98,6 +98,7 @@ async def _(n):
 async def _(x):
     await eor(x, get_string("yitxc_19"))
 
+
 @ayiin_cmd(pattern="h(?: |$)(.*)")
 async def _(d):
     await eor(d, get_string("yitxc_20"))

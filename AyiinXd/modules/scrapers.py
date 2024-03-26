@@ -201,7 +201,7 @@ async def gsearch(q_event):
         except IndexError:
             break
     await eor(
-        yins, 
+        yins,
         get_string("google_1").format(match, msg),
         link_preview=False,
         aslink=True,
@@ -248,8 +248,8 @@ async def _(event):
     try:
         mean = await urban.get_word(word)
         await xx.edit(get_string("scrud_1").format(
-                mean.word, mean.definition, mean.example
-            )
+            mean.word, mean.definition, mean.example
+        )
         )
     except asyncurban.WordNotFoundError:
         await xx.edit(get_string("scrud_2").format(word))
@@ -314,7 +314,8 @@ async def _(event):
     try:
         translated = translator.translate(text, dest=lan)
         after_tr_text = translated.text
-        output_str = get_string("scrtr_2").format(translated.src, lan, after_tr_text)
+        output_str = get_string("scrtr_2").format(
+            translated.src, lan, after_tr_text)
         await xx.edit(output_str)
     except Exception as exc:
         await eod(xx, get_string("error_1").format(str(exc)))
@@ -467,7 +468,7 @@ async def download_video(v_url):
         return await eod(xx, get_string("error_1").format(DE))
     except ContentTooShortError:
         return await eod(xx, get
-        ("scryt_4"))
+                         ("scryt_4"))
     except GeoRestrictedError:
         return await eod(
             xx, get_string("scryt_5")
@@ -489,7 +490,7 @@ async def download_video(v_url):
     c_time = time.time()
     if audio:
         await xx.edit(get_string("scryt_10").format(rip_data.get('title'), rip_data.get('uploader'))
-        )
+                      )
         f_name = glob(
             os.path.join(
                 TEMP_DOWNLOAD_DIRECTORY,
@@ -532,7 +533,7 @@ async def download_video(v_url):
         await xx.delete()
     elif video:
         await xx.edit(get_string("scryt_10").format(rip_data.get('title'), rip_data.get('uploader'))
-        )
+                      )
         f_path = glob(
             os.path.join(
                 TEMP_DOWNLOAD_DIRECTORY,
@@ -637,7 +638,7 @@ async def kbg(remob):
     else:
         await eod(
             xx, get_string("scrbg_5").format(output_file_name.content.decode("UTF-8")
-            ),
+                                             ),
         )
 
 
@@ -832,7 +833,7 @@ async def capture(url):
     driver.set_window_size(width + 125, height + 125)
     wait_for = height / 1000
     await xx.edit(get_string("scrss_2").format(height, width, int(wait_for))
-    )
+                  )
     await sleep(int(wait_for))
     im_png = driver.get_screenshot_as_png()
     # saves screenshot of entire page

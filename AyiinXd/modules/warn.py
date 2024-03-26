@@ -17,7 +17,7 @@ from AyiinXd import CMD_HELP
 from AyiinXd.ayiin import ayiin_cmd, eor
 from AyiinXd.ayiin._baseyins import AyiinDB
 from AyiinXd.modules.sql_helper.warn_db import add_warn, reset_warn, warns
-from Stringyins import get_string
+
 
 def inline_mention(user, custom=None, html=False):
     mention_text = get_display_name(user) or user if not custom else custom

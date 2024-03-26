@@ -1,7 +1,5 @@
 import asyncio
 import os
-import re
-import traceback
 from time import time
 from traceback import format_exc
 from requests.exceptions import MissingSchema
@@ -13,13 +11,9 @@ from telethon.errors.rpcerrorlist import (
     ChatSendMediaForbiddenError,
 )
 
-from AyiinXd import CMD_HANDLER as HNDLR
 from AyiinXd import LOGS, bot
-from AyiinXd.ayiin import eod, eor
 
-from telethon import events
-from telethon.tl import functions, types
-from telethon.utils import get_display_name
+from telethon.tl import functions
 
 try:
     from yt_dlp import YoutubeDL
@@ -28,11 +22,10 @@ except ImportError:
     LOGS.error("'yt-dlp' not found!")
 
 try:
-   from youtubesearchpython import VideosSearch
+    from youtubesearchpython import VideosSearch
 except ImportError:
     VideosSearch = None
 
-from Stringyins import get_string
 
 from ._baseyins import AyiinDB
 from .tools import bash, downloader
@@ -86,7 +79,8 @@ class Ayiin:
             VIDEO_ON.update({self._chat: self.group_call})
         if self._chat not in ACTIVE_CALLS:
             try:
-                self.group_call.on_network_status_changed(self.on_network_changed)
+                self.group_call.on_network_status_changed(
+                    self.on_network_changed)
                 self.group_call.on_playout_ended(self.playout_ended_handler)
                 await self.group_call.join(self._chat)
             except GroupCallNotFoundError as er:
@@ -183,7 +177,7 @@ class Ayiin:
         return False
 
 
-#====================
+# ====================
 
 
 def add_to_queue(chat_id, song, song_name, link, thumb, from_user, duration):
@@ -232,9 +226,9 @@ async def get_from_queue(chat_id):
     if not song:
         song = await get_stream_link(link)
     return song, title, link, thumb, from_user, play_this, duration
-    
 
-#--------------
+
+# --------------
 
 
 async def download(query):
@@ -315,7 +309,14 @@ async def dl_playlist(chat, from_user, link):
                 duration = vid.get("duration") or "♾"
                 title = vid["title"]
                 thumb = f"https://i.ytimg.com/vi/{vid['id']}/hqdefault.jpg"
-                add_to_queue(chat, None, title, vid["link"], thumb, from_user, duration)
+                add_to_queue(
+                    chat,
+                    None,
+                    title,
+                    vid["link"],
+                    thumb,
+                    from_user,
+                    duration)
             except Exception as er:
                 LOGS.exception(er)
 
@@ -335,9 +336,8 @@ async def file_download(event, reply, fast_download=True):
         dl = dl.name
     else:
         dl = await reply.download_media()
-    duration = (
-        time_formatter(reply.file.duration * 1000) if reply.file.duration else "🤷‍♂️"
-    )
+    duration = (time_formatter(reply.file.duration * 1000)
+                if reply.file.duration else "🤷‍♂️")
     if reply.document.thumbs:
         thumb = await reply.download_media("./downloads/", thumb=-1)
     return dl, thumb, title, reply.message_link, duration
@@ -347,7 +347,8 @@ def is_url_ok(url: str):
     try:
         import requests
     except ImportError:
-        raise DependencyMissingError("This function needs 'requests' to be installed.")
+        raise DependencyMissingError(
+            "This function needs 'requests' to be installed.")
     try:
         r = requests.head(url)
     except MissingSchema:

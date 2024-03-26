@@ -232,17 +232,17 @@ async def spider(spdr):
     if user.id in WHITELIST:
         return await spdr.edit(get_string("mute_3"))
     await eor(spdr, get_string("mute_4").format(user.first_name, user.id, user.id, self_user.first_name)
-                     )
+              )
     if mute(spdr.chat_id, user.id) is False:
         return await eor(spdr, get_string("mute_7"))
     try:
         await spdr.client(EditBannedRequest(spdr.chat_id, user.id, MUTE_RIGHTS))
         if reason:
             await eor(spdr, get_string("mute_5").format(user.first_name, user.id, user.id, reason, self_user.first_name)
-                             )
+                      )
         else:
             await eor(spdr, get_string("mute_6").format(user.first_name, user.id, user.id, self_user.first_name)
-                             )
+                      )
     except UserIdInvalidError:
         return await eor(spdr, get_string("error_2"), time=10)
 
@@ -454,7 +454,7 @@ async def pin(event):
     options = (event.pattern_match.group(1)).strip()
     if not to_unpin and options != "all":
         return await eor(event, get_string("upin_1").format(cmd), time=20,
-                               )
+                         )
     try:
         if to_unpin and not options:
             await event.client.unpin_message(event.chat_id, to_unpin)
@@ -521,7 +521,8 @@ async def _iundlt(event):
                     msg.old.message, _format.mentionuser(
                         ruser.first_name, ruser.id))
             else:
-                deleted_msg += get_string("undl_3").format(_media_type, _format.mentionuser(ruser.first_name, ruser.id))
+                deleted_msg += get_string("undl_3").format(_media_type,
+                                                           _format.mentionuser(ruser.first_name, ruser.id))
         await eor(catevent, deleted_msg)
     else:
         main_msg = await eor(catevent, deleted_msg)

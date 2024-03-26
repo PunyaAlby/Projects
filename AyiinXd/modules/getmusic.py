@@ -175,7 +175,8 @@ async def _(event):
     try:
         loa = l[0]
         metadata = extractMetadata(createParser(loa))
-        duration = metadata.get("duration").seconds if metadata.has("duration") else 0
+        duration = metadata.get(
+            "duration").seconds if metadata.has("duration") else 0
         width = metadata.get("width") if metadata.has("width") else 0
         height = metadata.get("height") if metadata.has("height") else 0
         os.system("cp *mp4 thumb.mp4")

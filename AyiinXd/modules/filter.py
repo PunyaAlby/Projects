@@ -49,7 +49,7 @@ async def add_new_filter(new_handler):
     """For .filter command, allows adding new filters in a chat"""
     if new_handler.chat_id in BLACKLIST_CHAT:
         return await new_handler.edit(get_string("ayiin_1")
-        )
+                                      )
     try:
         from AyiinXd.modules.sql_helper.filter_sql import add_filter
     except AttributeError:
@@ -78,7 +78,7 @@ async def add_new_filter(new_handler):
             msg_id = msg_o.id
         else:
             return await new_handler.edit(get_string("flr_8")
-            )
+                                          )
     elif new_handler.reply_to_msg_id and not string:
         rep_msg = await new_handler.get_reply_message()
         string = rep_msg.text
@@ -100,7 +100,7 @@ async def remove_a_filter(r_handler):
         await r_handler.edit(get_string("flr_9").format(filt))
     else:
         await r_handler.edit(get_string("flr_5").format(filt)
-        )
+                             )
 
 
 @bot.on(ayiin_cmd(outgoing=True, pattern=r"delfilterbot (.*)"))

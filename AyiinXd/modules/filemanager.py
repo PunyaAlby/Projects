@@ -31,10 +31,11 @@ async def lst(event):
     path = cat or os.getcwd()
     if not exists(path):
         await event.edit(get_string("file_1").format(cat)
-        )
+                         )
         return
     if isdir(path):
-        msg = get_string("file_2").format(path) if cat else get_string("file_3")
+        msg = get_string("file_2").format(
+            path) if cat else get_string("file_3")
         lists = os.listdir(path)
         files = ""
         folders = ""
@@ -71,7 +72,8 @@ async def lst(event):
                 files += f"`{contents}` (__{humanbytes(size)}__)\n"
             else:
                 folders += f"📁 `{contents}`\n"
-        msg = msg + folders + files if files or folders else f"{msg}__empty path__"
+        msg = msg + folders + \
+            files if files or folders else f"{msg}__empty path__"
     else:
         size = os.stat(path).st_size
         msg = "Rincian file yang diberikan:\n\n"
@@ -182,7 +184,7 @@ async def zip_file(event):
                         zip_obj.write(files_path, arc_path)
             end_time = (datetime.now() - start_time).seconds
             await event.edit(get_string("zip_1").format(path, zip_path, end_time)
-            )
+                             )
         elif isfile(path):
             file_name = basename(path)
             zip_path = f"{join(TEMP_DOWNLOAD_DIRECTORY, file_name)}.zip"
@@ -218,7 +220,7 @@ async def unzip_file(event):
             zip_type = TarFile
         else:
             return await event.edit(get_string("uzip_1")
-            )
+                                    )
         try:
             with zip_type(input_str, "r") as zip_obj:
                 zip_obj.extractall(output_path)
@@ -230,7 +232,7 @@ async def unzip_file(event):
             return await event.edit(get_string("error_1").format(err))
         end_time = (datetime.now() - start_time).seconds
         await event.edit(get_string("uzip_2").format(input_str, output_path, end_time)
-        )
+                         )
     else:
         await event.edit(get_string("failed8"))
 

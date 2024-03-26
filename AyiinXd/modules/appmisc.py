@@ -318,7 +318,7 @@ async def _(event):
                 status, e = await ban_user(event.chat_id, i, rights)
                 if not status:
                     await eod(xx, get_string("hk_admn")
-                                      )
+                              )
                     e.append(str(e))
                     break
                 c += 1

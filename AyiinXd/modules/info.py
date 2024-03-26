@@ -33,7 +33,7 @@ async def who(event):
         photo, caption = await fetch_info(replied_user, event)
     except AttributeError:
         return event.edit(get_string("info_1")
-        )
+                          )
 
     message_id_to_reply = event.message.reply_to_msg_id
 

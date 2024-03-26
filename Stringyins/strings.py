@@ -1,5 +1,4 @@
 import os
-import sys
 from os import listdir, path
 from typing import Any, Dict, List, Union
 
@@ -27,7 +26,7 @@ except ModuleNotFoundError:
         read = file.readlines()
         out = {}
         for line in read:
-            if ":" in line: # Ignores Empty & Invalid lines
+            if ":" in line:  # Ignores Empty & Invalid lines
                 spli = line.split(":", maxsplit=1)
                 key = spli[0].strip()
                 value = _get_value(spli[1])
@@ -67,7 +66,7 @@ def get_string(key: str) -> Any:
             id_ = languages["id"][key]
             if not Trs:
                 return id_
-            tr = Trs.translate(id_, lang_tgt=lang).replace("\ N", "\n")
+            tr = Trs.translate(id_, lang_tgt=lang).replace("\\ N", "\n")
             if id_.count("{}") != tr.count("{}"):
                 tr = id_
             if languages.get(lang):
@@ -81,7 +80,8 @@ def get_string(key: str) -> Any:
             pass
         except Exception as er:
             LOGS.exception(er)
-        return languages["id"].get(key) or f"Gagal memuat string bahasa '{key}'"
+        return languages["id"].get(
+            key) or f"Gagal memuat string bahasa '{key}'"
 
 
 def get_languages() -> Dict[str, Union[str, List[str]]]:

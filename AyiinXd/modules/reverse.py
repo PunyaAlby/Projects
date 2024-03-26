@@ -63,7 +63,7 @@ async def okgoogle(img):
     if response == 400:
         return await xx.edit(get_string("rvrse_2"))
     await xx.edit(get_string("rvrse_3")
-    )
+                  )
     os.remove(name)
     match = await ParseSauce(f"{fetchUrl}&preferences?hl=en&fg=1#languages")
     guess = str(match["best_guess"])
@@ -78,9 +78,9 @@ async def okgoogle(img):
     counter = 3 if counter < 0 else counter
     if counter == 0:
         return await xx.edit(get_string("rvrse_5").format(guess, fetchUrl, guess, imgspage)
-        )
+                             )
     await xx.edit(get_string("rvrse_6").format(guess, fetchUrl, guess, imgspage)
-    )
+                  )
     response = googleimagesdownload()
     # creating list of arguments
     arguments = {
@@ -93,7 +93,7 @@ async def okgoogle(img):
         paths = response.download(arguments)
     except Exception as e:
         return await xx.edit(get_string("rvrse_7").format(guess, fetchUrl, guess, imgspage, e)
-        )
+                             )
     lst = paths[0][guess]
     await img.client.send_file(
         entity=img.chat_id,
@@ -101,7 +101,7 @@ async def okgoogle(img):
         reply_to=img,
     )
     await xx.edit(get_string("rvrse_5").format(guess, fetchUrl, guess, imgspage)
-    )
+                  )
     shutil.rmtree(os.path.dirname(os.path.abspath(lst[0])))
 
 

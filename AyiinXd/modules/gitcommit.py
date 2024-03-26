@@ -83,7 +83,7 @@ async def git_commit(file_name, mone):
             ccess = GIT_REPO_NAME
             ccess = ccess.strip()
             await mone.edit(get_string("comt_5").format(ccess)
-            )
+                            )
         except BaseException:
             print(get_string("comt_6").format("membuat"))
             await mone.edit(get_string("comt_6").format("mengunggah"))

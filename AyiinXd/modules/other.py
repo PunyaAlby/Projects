@@ -143,7 +143,7 @@ async def _(event):
     if k:
         a = await event.client.get_messages(event.chat_id, 0, from_user=k.sender_id)
         return await event.edit(get_string("tmsg_1").format(a.total, u)
-        )
+                                )
     if not u:
         u = "me"
     a = await event.client.get_messages(event.chat_id, 0, from_user=u)

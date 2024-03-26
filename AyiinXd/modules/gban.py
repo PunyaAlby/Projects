@@ -33,7 +33,7 @@ async def handler(tele):
                             tele.chat_id, guser.id, view_messages=False
                         )
                         await tele.reply(get_string("gban_1").format(guser.id, guser.id)
-                        )
+                                         )
                     except BaseException:
                         return
 
@@ -67,7 +67,7 @@ async def gben(userbot):
             return await dark.edit(get_string("gban_5"))
         if user.id in WHITELIST:
             return await dark.edit(get_string("gban_6")
-            )
+                                   )
         try:
             from AyiinXd.modules.sql_helper.gmute_sql import gmute
         except BaseException:
@@ -82,7 +82,7 @@ async def gben(userbot):
                 await userbot.client.edit_permissions(i, user, view_messages=False)
                 a += 1
                 await dark.edit(get_string("gban_7").format(user.first_name, user.id, user.id)
-                )
+                                )
             except BaseException:
                 b += 1
     else:
@@ -90,12 +90,12 @@ async def gben(userbot):
     try:
         if gmute(user.id) is False:
             return await dark.edit(get_string("gban_9")
-            )
+                                   )
 
     except BaseException:
         pass
     return await dark.edit(get_string("gban_10").format(user.first_name, user.id, user.id, me.first_name)
-    )
+                           )
 
 
 @ayiin_cmd(pattern=r"ungband(?: |$)(.*)")
@@ -125,7 +125,7 @@ async def gunben(userbot):
     if user:
         if user.id in blacklistayiin:
             return await dark.edit(get_string("ungban_3")
-            )
+                                   )
         try:
             from AyiinXd.modules.sql_helper.gmute_sql import ungmute
         except BaseException:
@@ -150,4 +150,4 @@ async def gunben(userbot):
     except BaseException:
         pass
     return await dark.edit(get_string("ungban_4").format(user.first_name, user.id, user.id, me.first_name)
-    )
+                           )

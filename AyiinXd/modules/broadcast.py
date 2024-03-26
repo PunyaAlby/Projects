@@ -70,11 +70,11 @@ async def catbroadcast_send(event):
     no_of_chats = sql.num_broadcastlist_chat(keyword)
     if no_of_chats == 0:
         return await eor(event, get_string("bd_2").format(keyword, cmd),
-                               parse_mode=parse_pre,
-                               )
+                         parse_mode=parse_pre,
+                         )
     chats = sql.get_chat_broadcastlist(keyword)
     catevent = await eor(event, get_string("bd_3"), parse_mode=parse_pre,
-                               )
+                         )
     i = 0
     for chat in chats:
         try:
@@ -101,15 +101,15 @@ async def catbroadcast_add(event):
     catinput_str = event.pattern_match.group(1)
     if not catinput_str:
         return await eor(event, get_string("bd_6"), parse_mode=parse_pre
-                               )
+                         )
     keyword = catinput_str.lower()
     if check := sql.is_in_broadcastlist(keyword, event.chat_id):
         return await eor(event, get_string("bd_7").format(keyword),
-                               parse_mode=parse_pre,
-                               )
+                         parse_mode=parse_pre,
+                         )
     sql.add_to_broadcastlist(keyword, event.chat_id)
     await eor(event, get_string("bd_8").format(keyword), parse_mode=parse_pre
-                    )
+              )
     chat = await event.get_chat()
     if BOTLOG_CHATID:
         try:
@@ -131,16 +131,16 @@ async def catbroadcast_remove(event):
     catinput_str = event.pattern_match.group(1)
     if not catinput_str:
         return await eor(event, get_string("bd_12"), parse_mode=parse_pre
-                               )
+                         )
     keyword = catinput_str.lower()
     check = sql.is_in_broadcastlist(keyword, event.chat_id)
     if not check:
         return await eor(event, get_string("bd_13").format(keyword), parse_mode=parse_pre
-                               )
+                         )
     sql.rm_from_broadcastlist(keyword, event.chat_id)
     await eor(event, get_string("bd_14").format(keyword),
-                    parse_mode=parse_pre,
-                    )
+              parse_mode=parse_pre,
+              )
     chat = await event.get_chat()
     if BOTLOG_CHATID:
         try:

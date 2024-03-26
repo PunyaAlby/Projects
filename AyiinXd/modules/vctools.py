@@ -15,19 +15,17 @@ import asyncio
 from pytgcalls.exceptions import NotConnectedError
 
 from telethon.tl.functions.channels import GetFullChannelRequest as getchat
-from telethon.tl.functions.phone import CreateGroupCallRequest as startvc
 from telethon.tl.functions.phone import DiscardGroupCallRequest as stopvc
 from telethon.tl.functions.phone import EditGroupCallTitleRequest as settitle
 from telethon.tl.functions.phone import GetGroupCallRequest as getvc
 from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
 
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import CMD_HELP, VVIP, bot
+from AyiinXd import CMD_HELP, VVIP
 from AyiinXd.ayiin import ayiin_cmd, eod, eor
 from AyiinXd.events import register
 from AyiinXd.ayiin.pytgcalls import Ayiin, CLIENTS, VIDEO_ON
 from Stringyins import get_string
-
 
 
 async def get_call(event):
@@ -52,7 +50,7 @@ async def start_voice(c):
         Xd = Ayiin(c.chat_id)
         await Xd.make_vc_active()
         await xnxx.edit(get_string("stvc_2"))
-    except Exception as ex:
+    except Exception:
         await eod(xnxx, get_string("error_1").format(e))
 
 
@@ -123,7 +121,7 @@ async def _(event):
     yins = await event.client.get_me()
     if sender.id != yins.id:
         AyiinXd = await event.reply(get_string("com_1"))
-    else: 
+    else:
         AyiinXd = await eor(event, get_string("com_1"))
     if len(event.text.split()) > 1:
         chat = event.text.split()[1]
@@ -137,12 +135,11 @@ async def _(event):
     if not Xd.group_call.is_connected:
         await Xd.group_call.join(chat)
         await AyiinXd.edit(get_string("jovc_1").format(yins.first_name, yins.id, chat)
-        )
+                           )
         await asyncio.sleep(1)
         await Xd.group_call.set_is_mute(False)
         await asyncio.sleep(1)
         await Xd.group_call.set_is_mute(True)
-
 
 
 @ayiin_cmd(pattern="leavevc(?: |$)(.*)", group_only=True)
@@ -152,7 +149,7 @@ async def _(event):
     yins = await event.client.get_me()
     if sender.id != yins.id:
         AyiinXd = await event.reply(get_string("com_1"))
-    else: 
+    else:
         AyiinXd = await eor(event, get_string("com_1"))
     if len(event.text.split()) > 1:
         chat = event.text.split()[1]
@@ -194,7 +191,7 @@ async def volume_setter(event):
     if len(event.text.split()) <= 1:
         return await event.eor("`Harap tentukan volume dari 1 hingga 200!`")
     inp = event.text.split()
-    if inp[1].startswith(("@","-")):
+    if inp[1].startswith(("@", "-")):
         chat = inp[1]
         vol = int(inp[2])
         try:

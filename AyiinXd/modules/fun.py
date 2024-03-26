@@ -32,7 +32,7 @@ async def frg(animu):
         )
     except Exception:
         return await xx.edit(get_string("fun_2")
-        )
+                             )
     await xx.delete()
 
 

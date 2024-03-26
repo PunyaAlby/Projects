@@ -51,7 +51,7 @@ async def add(event):
         app = Heroku.app(HEROKU_APP_NAME)
     else:
         await eod(xxnx, get_string("adsu_3")
-        )
+                  )
         return
     heroku_Config = app.config()
     if event is None:
@@ -64,7 +64,7 @@ async def add(event):
     newsudo = suudo.replace("{", "")
     newsudo = newsudo.replace("}", "")
     await xxnx.edit(get_string("adsu_4").format(target)
-    )
+                    )
     heroku_Config[var] = newsudo
 
 
@@ -86,7 +86,7 @@ async def _(event):
         app = Heroku.app(HEROKU_APP_NAME)
     else:
         await eod(xxx, get_string("dlsu_2")
-        )
+                  )
         return
     heroku_Config = app.config()
     if event is None:
@@ -99,12 +99,12 @@ async def _(event):
     if gett in sudousers:
         newsudo = sudousers.replace(gett, "")
         await xxx.edit(get_string("dlsu_3").format(target)
-        )
+                       )
         var = "SUDO_USERS"
         heroku_Config[var] = newsudo
     else:
         await eod(xxx, get_string("dlsu_4"), time=45
-        )
+                  )
 
 
 async def get_user(event):

@@ -51,7 +51,7 @@ async def helpyins(event):
                 await event.delete()
             except timout:
                 return await eor(event, f"Bot tidak menanggapi inline kueri.\nSilahkan Ketik `{cmd}restart`"
-                )
+                                 )
             except noinline:
                 xx = await eor(event, "**Inline Mode Tidak aktif.**\n__Sedang Menyalakannya, Harap Tunggu Sebentar...__",
                                )

@@ -40,7 +40,7 @@ async def get_tz(con):
 async def get_weather(weather):
     if not OWM_API:
         return await weather.edit(get_string("weather_1")
-        )
+                                  )
     xx = await eor(weather, get_string("com_1"))
     APPID = OWM_API
     anonymous = False
@@ -53,7 +53,7 @@ async def get_weather(weather):
         CITY = weather.pattern_match.group(1)
     if not CITY:
         return await xx.edit(get_string("weather_2")
-        )
+                             )
     timezone_countries = {
         timezone: country
         for country, timezones in c_tz.items()
@@ -108,7 +108,21 @@ async def get_weather(weather):
     def sun(unix):
         return datetime.fromtimestamp(unix, tz=ctimezone).strftime("%I:%M %p")
 
-    results = get_string("weather_4").format(celsius(curtemp), fahrenheit(curtemp), celsius(min_temp), fahrenheit(min_temp), celsius(max_temp), fahrenheit(max_temp), humidity, kmph[0], mph[0], findir, sun(sunrise), sun(sunset), desc, time)
+    results = get_string("weather_4").format(
+        celsius(curtemp),
+        fahrenheit(curtemp),
+        celsius(min_temp),
+        fahrenheit(min_temp),
+        celsius(max_temp),
+        fahrenheit(max_temp),
+        humidity,
+        kmph[0],
+        mph[0],
+        findir,
+        sun(sunrise),
+        sun(sunset),
+        desc,
+        time)
     if not anonymous:
         results += f"`{cityname}, {fullc_n}`"
 

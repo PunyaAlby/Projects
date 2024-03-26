@@ -52,7 +52,8 @@ async def paste(pstl):
             await client.post()
 
         if client:
-            reply_text = get_string("paste_3").format(client.link, client.raw_link)
+            reply_text = get_string("paste_3").format(
+                client.link, client.raw_link)
         else:
             reply_text = get_string("paste_4")
 

@@ -111,7 +111,7 @@ async def save_welcome(event):
             msg_id = msg_o.id
         else:
             return await event.edit(get_string("swel_2")
-            )
+                                    )
     elif event.reply_to_msg_id and not string:
         rep_msg = await event.get_reply_message()
         string = rep_msg.text

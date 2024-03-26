@@ -27,7 +27,7 @@ async def _(event):
                 check = await conv.get_response()
                 if not check.text.startswith("Audio received"):
                     return await xx.edit(get_string("shazam_3")
-                    )
+                                         )
                 await xx.edit(get_string("com_1"))
                 result = await conv.get_response()
                 await event.client.send_read_acknowledge(conv.chat_id)
@@ -40,11 +40,12 @@ async def _(event):
                 check = await conv.get_response()
                 if not check.text.startswith("Audio received"):
                     return await xx.edit(get_string("shazam_3")
-                    )
+                                         )
                 await xx.edit(get_string("com_1"))
                 result = await conv.get_response()
                 await event.client.send_read_acknowledge(conv.chat_id)
-            namem = get_string("shazam_4").format(result.text.splitlines()[0], result.text.splitlines()[2])
+            namem = get_string("shazam_4").format(
+                result.text.splitlines()[0], result.text.splitlines()[2])
             await xx.edit(namem)
             await event.client.delete_messages(
                 conv.chat_id, [start_msg.id, send_audio.id, check.id, result.id]

@@ -42,7 +42,8 @@ try:
 except ImportError:
     psycopg2 = None
     if DB_URI:
-        LOGS.warning("'psycopg2' not found!\nInstall psycopg2 to use SQL database..")
+        LOGS.warning(
+            "'psycopg2' not found!\nInstall psycopg2 to use SQL database..")
 
 # --------------------------------------------------------------------------------------------- #
 
@@ -62,13 +63,18 @@ def get_data(self_, key):
 
 MONGO_URI = os.environ.get("MONGO_URI", None)
 REDIS_URI = (
-    sys.argv[4]
-    if len(sys.argv) > 4
-    else (os.environ.get("REDIS_URI", None) or os.environ.get("REDIS_URL", None))
-)
+    sys.argv[4] if len(
+        sys.argv) > 4 else (
+            os.environ.get(
+                "REDIS_URI",
+                None) or os.environ.get(
+                    "REDIS_URL",
+                None)))
 REDIS_PASSWORD = (
-    sys.argv[5] if len(sys.argv) > 5 else os.environ.get("REDIS_PASSWORD", None)
-)
+    sys.argv[5] if len(
+        sys.argv) > 5 else os.environ.get(
+            "REDIS_PASSWORD",
+        None))
 REDISHOST = os.environ.get("REDISHOST", None)
 REDISPASSWORD = os.environ.get("REDISPASSWORD", None)
 REDISPORT = os.environ.get("REDISPORT", None)
@@ -217,14 +223,16 @@ class SqlDB:
 
     def set_key(self, key, value):
         try:
-            self._cursor.execute(f"ALTER TABLE Ayiin DROP COLUMN IF EXISTS {key}")
+            self._cursor.execute(
+                f"ALTER TABLE Ayiin DROP COLUMN IF EXISTS {key}")
         except (psycopg2.errors.UndefinedColumn, psycopg2.errors.SyntaxError):
             pass
         except BaseException as er:
             LOGS.exception(er)
         self._cache.update({key: value})
         self._cursor.execute(f"ALTER TABLE Ayiin ADD {key} TEXT")
-        self._cursor.execute(f"INSERT INTO Ayiin ({key}) values (%s)", (str(value),))
+        self._cursor.execute(
+            f"INSERT INTO Ayiin ({key}) values (%s)", (str(value),))
         return True
 
     def del_key(self, key):
@@ -293,14 +301,16 @@ class RedisDB:
         if platform.lower() == "qovery" and not host:
             var, hash_, host, password = "", "", "", ""
             for vars_ in os.environ:
-                if vars_.startswith("QOVERY_REDIS_") and vars.endswith("_HOST"):
+                if vars_.startswith(
+                        "QOVERY_REDIS_") and vars.endswith("_HOST"):
                     var = vars_
             if var:
                 hash_ = var.split("_", maxsplit=2)[1].split("_")[0]
             if hash:
                 kwargs["host"] = os.environ(f"QOVERY_REDIS_{hash_}_HOST")
                 kwargs["port"] = os.environ(f"QOVERY_REDIS_{hash_}_PORT")
-                kwargs["password"] = os.environ(f"QOVERY_REDIS_{hash_}_PASSWORD")
+                kwargs["password"] = os.environ(
+                    f"QOVERY_REDIS_{hash_}_PASSWORD")
         self.db = Redis(**kwargs)
         self.set = self.db.set
         self.get = self.db.get

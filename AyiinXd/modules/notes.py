@@ -40,7 +40,7 @@ async def remove_notes(clr):
     notename = clr.pattern_match.group(1)
     if rm_note(clr.chat_id, notename) is False:
         return await clr.edit(get_string("notes_4").format(notename)
-        )
+                              )
     return await clr.edit(get_string("notes_5").format(notename))
 
 
@@ -65,7 +65,7 @@ async def add_note(fltr):
             msg_id = msg_o.id
         else:
             return await fltr.edit(get_string("notes_7")
-            )
+                                   )
     elif fltr.reply_to_msg_id and not string:
         rep_msg = await fltr.get_reply_message()
         string = rep_msg.text

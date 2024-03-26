@@ -97,12 +97,12 @@ async def time_func(tdata):
 
     if c_name != COUNTRY:
         await tdata.edit(get_string("timdat_7").format(dtnow, c_name, time_zone)
-        )
+                         )
         return
 
     if COUNTRY:
         await tdata.edit(get_string("timdat_9").format(dtnow, COUNTRY, time_zone)
-        )
+                         )
         return
 
 
@@ -131,7 +131,7 @@ async def date_func(dat):
         timezones = await get_tz(COUNTRY)
     else:
         await dat.edit(get_string("timdat_8").format(dt.now().strftime(d_form))
-        )
+                       )
         return
 
     if not timezones:
@@ -161,12 +161,12 @@ async def date_func(dat):
 
     if c_name != COUNTRY:
         await dat.edit(get_string("timdat_9").format(dtnow, c_name, time_zone)
-        )
+                       )
         return
 
     if COUNTRY:
         await dat.edit(get_string("timdat_9").format(dtnow, COUNTRY, time_zone)
-        )
+                       )
         return
 
 

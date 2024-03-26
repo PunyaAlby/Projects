@@ -38,7 +38,7 @@ async def _(event):
             except YouBlockedUserError:
                 await event.client(UnblockRequest(chat))
                 return await xx.edit(get_string("pdf_2")
-                )
+                                     )
             await event.client.send_message(event.chat_id, pdf)
             await event.client.delete_messages(
                 conv.chat_id,
@@ -58,7 +58,7 @@ async def _(event):
             await xx.delete()
     except TimeoutError:
         return await xx.edit(get_string("pdf_3")
-        )
+                             )
 
 
 CMD_HELP.update(

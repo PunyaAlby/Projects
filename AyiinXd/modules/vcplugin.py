@@ -5,14 +5,16 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
-import asyncio, re, os
+import asyncio
+import re
+import os
 
 from telethon.tl import types
 from telethon.errors.rpcerrorlist import ChatSendMediaForbiddenError, MessageIdInvalidError
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, LOGS, INLINE_PIC
-from AyiinXd.ayiin import ayiin_cmd, bash, eod, eor
+from AyiinXd.ayiin import ayiin_cmd, bash, eor
 from AyiinXd.ayiin.pytgcalls import (
     add_to_queue,
     mediainfo,
@@ -29,11 +31,13 @@ from Stringyins import get_string
 
 from .stats import inline_mention
 
+
 def vcmention(user):
     full_name = get_display_name(user)
     if not isinstance(user, types.User):
         return full_name
     return f"[{full_name}](tg://user?id={user.id})"
+
 
 @ayiin_cmd(pattern="vplay")
 async def video_c(event):
@@ -83,8 +87,7 @@ async def video_c(event):
     if not (await Xd.vc_joiner()):
         return
     text = "🎸 **Now playing:** [{}]({})\n⏰ **Duration:** `{}`\n👥 **Chat:** `{}`\n🙋‍♂ **Requested by:** {}".format(
-        title, link, duration, chat, from_user
-    )
+        title, link, duration, chat, from_user)
     try:
         await xx.reply(
             text,
@@ -132,9 +135,11 @@ async def play_music_(event):
             song = input
     if not (reply or song):
         return await xx.eor("Please specify a song name or reply to a audio file !", time=5
-        )
+                            )
     await xx.eor("`Mengunduh dan mengonversi...`")
-    if reply and reply.media and mediainfo(reply.media).startswith(("audio", "video")):
+    if reply and reply.media and mediainfo(
+            reply.media).startswith(
+            ("audio", "video")):
         song, thumb, song_name, link, duration = await file_download(xx, reply)
     else:
         song, thumb, song_name, link, duration = await download(song)
@@ -151,8 +156,7 @@ async def play_music_(event):
                 add_to_queue(chat, song, lin, lin, None, from_user, duration)
             link = song_name = link[0]
         text = "🎸 <strong>Now playing: <a href={}>{}</a>\n⏰ Duration:</strong> <code>{}</code>\n👥 <strong>Chat:</strong> <code>{}</code>\n🙋‍♂ <strong>Requested by: {}</strong>".format(
-            link, song_name, duration, chat, from_user
-        )
+            link, song_name, duration, chat, from_user)
         try:
             await xx.reply(
                 text,
@@ -223,8 +227,7 @@ async def play_music_(event):
                 return
             await Xd.group_call.start_audio(song)
             text = "🎸 <strong>Now playing: <a href={}>{}</a>\n⏰ Duration:</strong> <code>{}</code>\n👥 <strong>Chat:</strong> <code>{}</code>\n🙋‍♂ <strong>Requested by: {}</strong>".format(
-                link, song_name, duration, chat, from_user
-            )
+                link, song_name, duration, chat, from_user)
             try:
                 await msg.reply(
                     text,
@@ -237,7 +240,14 @@ async def play_music_(event):
             if thumb and os.path.exists(thumb):
                 os.remove(thumb)
         else:
-            add_to_queue(chat, song, song_name, link, thumb, from_user, duration)
+            add_to_queue(
+                chat,
+                song,
+                song_name,
+                link,
+                thumb,
+                from_user,
+                duration)
             if send_message and count == 1:
                 await msg.eor(
                     f"▶ Added 🎵 <strong><a href={link}>{song_name}</a></strong> to queue at <strong>#{list(VC_QUEUE[chat].keys())[-1]}.</strong>",

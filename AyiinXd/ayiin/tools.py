@@ -210,7 +210,8 @@ async def take_screen_shot(
         duration,
     )
     ttl = duration // 2
-    thumb_image_path = path or os.path.join("./temp/", f"{basename(video_file)}.jpg")
+    thumb_image_path = path or os.path.join(
+        "./temp/", f"{basename(video_file)}.jpg")
     command = f"ffmpeg -ss {ttl} -i '{video_file}' -vframes 1 '{thumb_image_path}'"
     err = (await runcmd(command))[1]
     if err:
@@ -351,7 +352,12 @@ def post_to_telegraph(title, html_format_content):
     return post_page["url"]
 
 
-async def edit_delete(event, text, time=None, parse_mode=None, link_preview=None):
+async def edit_delete(
+        event,
+        text,
+        time=None,
+        parse_mode=None,
+        link_preview=None):
     parse_mode = parse_mode or "md"
     link_preview = link_preview or False
     time = time or 15

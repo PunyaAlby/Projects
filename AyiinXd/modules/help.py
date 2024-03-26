@@ -18,10 +18,9 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import CMD_HELP, ICON_HELP, ch, tgbot
+from AyiinXd import CMD_HELP, ch, tgbot
 from AyiinXd.ayiin import ayiin_cmd, eod, eor
 from Stringyins import get_string
-
 
 
 @ayiin_cmd(pattern="help(?: |$)(.*)")
@@ -48,7 +47,7 @@ async def helpyins(event):
                 await event.delete()
             except timout:
                 return await eor(event, f"Bot tidak menanggapi inline kueri.\nSilahkan Ketik `{cmd}restart`"
-                )
+                                 )
             except noinline:
                 xx = await eor(event, "**Inline Mode Tidak aktif.**\n__Sedang Menyalakannya, Harap Tunggu Sebentar...__",
                                )

@@ -52,7 +52,7 @@ async def _(event):
             await event.delete()
     except TimeoutError:
         return await xx.edit(get_string("error_8").format("@ShortUrlBot")
-        )
+                             )
 
 
 CMD_HELP.update(

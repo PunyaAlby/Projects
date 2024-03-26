@@ -68,11 +68,11 @@ async def sed(command):
             to_fix = textx.text
         else:
             return await command.edit(get_string("sed_1")
-            )
+                                      )
         repl, repl_with, flags = sed_result
         if not repl:
             return await command.edit(get_string("sed_1")
-            )
+                                      )
         try:
             check = re.match(repl, to_fix, flags=re.IGNORECASE)
             if check and check.group(0).lower() == to_fix.lower():

@@ -184,8 +184,11 @@ class ParallelTransferrer:
         return math.ceil((file_size / full_size) * max_count)
 
     async def _init_download(
-        self, connections: int, file: TypeLocation, part_count: int, part_size: int
-    ) -> None:
+            self,
+            connections: int,
+            file: TypeLocation,
+            part_count: int,
+            part_size: int) -> None:
         minimum, remainder = divmod(part_count, connections)
 
         def get_part_count() -> int:

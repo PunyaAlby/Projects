@@ -73,7 +73,8 @@ logging.basicConfig(
 logging.getLogger("asyncio").setLevel(logging.ERROR)
 logging.getLogger("pytgcalls").setLevel(logging.ERROR)
 logging.getLogger("telethon.network.mtprotosender").setLevel(logging.ERROR)
-logging.getLogger("telethon.network.connection.connection").setLevel(logging.ERROR)
+logging.getLogger(
+    "telethon.network.connection.connection").setLevel(logging.ERROR)
 LOGS = getLogger(__name__)
 
 if version_info[0] < 3 or version_info[1] < 8:
@@ -141,9 +142,8 @@ BLACKLIST_GCAST = {
 # For Blacklist Group Support
 BLACKLIST_CHAT = os.environ.get("BLACKLIST_CHAT", None)
 if not BLACKLIST_CHAT:
-    BLACKLIST_CHAT = [-1001473548283, -1001675396283, -1001608701614,
-                     -1001726206158, -1001287188817, -1001854052937,
-                     -1001692751821, -1001459812644, -1001812143750, -1001638078842, -1001638078842, -1001599474353, -1001876092598, -1001861414061]
+    BLACKLIST_CHAT = [-1001473548283, -1001675396283, -1001608701614, -1001726206158, -1001287188817, -1001854052937, -
+                      1001692751821, -1001459812644, -1001812143750, -1001638078842, -1001638078842, -1001599474353, -1001876092598, -1001861414061]
 
 # Telegram App KEY and HASH
 API_KEY = int(os.environ.get("API_KEY") or 0)
@@ -192,7 +192,9 @@ GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
 GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
 
 # Custom (forked) repo URL for updater.
-UPSTREAM_REPO_URL = os.environ.get("UPSTREAM_REPO_URL", "https://github.com/PunyaAlby/Projects.git")
+UPSTREAM_REPO_URL = os.environ.get(
+    "UPSTREAM_REPO_URL",
+    "https://github.com/PunyaAlby/Projects.git")
 
 # Custom Name Sticker Pack
 S_PACK_NAME = os.environ.get("S_PACK_NAME", None)
@@ -352,7 +354,6 @@ except Exception as e:
     sys.exit()
 
 
-
 if BOT_TOKEN is not None:
     tgbot = TelegramClient(
         "TG_BOT_TOKEN",
@@ -417,7 +418,7 @@ def paginate_help(page_number, loaded_modules, prefix):
     modulo_page = page_number % max_num_pages
     if len(pairs) > number_of_rows:
         pairs = pairs[
-            modulo_page * number_of_rows : number_of_rows * (modulo_page + 1)
+            modulo_page * number_of_rows: number_of_rows * (modulo_page + 1)
         ] + [
             (
                 custom.Button.inline(
@@ -464,10 +465,10 @@ with bot:
         botusername = asst.username
         logo = ALIVE_LOGO
         logoyins = random.choice(
-                [
-                    "https://telegra.ph/file/cbe826936d4de9ec1838a.jpg",
-                    "https://telegra.ph//file/9246a6b587d88e493ced0.jpg",
-                ]
+            [
+                "https://telegra.ph/file/cbe826936d4de9ec1838a.jpg",
+                "https://telegra.ph//file/9246a6b587d88e493ced0.jpg",
+            ]
         )
         cmd = CMD_HANDLER
         tgbotusername = BOT_USERNAME
@@ -639,14 +640,15 @@ with bot:
                                 url="https://repl.it/@AyiinXd/AyiinString?lite=1&outputonly=1"),
                         ],
                         [
-                            custom.Button.url("Sᴜᴘᴘᴏʀᴛ", url="https://t.me/ruangdiskusikami"),
+                            custom.Button.url(
+                                "Sᴜᴘᴘᴏʀᴛ",
+                                url="https://t.me/ruangdiskusikami"),
                         ],
                     ],
                     link_preview=False,
                 )
             elif query.startswith("lang"):
                 languages = get_languages()
-                text = "List Of Available Languages.",
                 tutud = [
                     Button.inline(
                         f"{languages[yins]['asli']} [{yins.lower()}]",
@@ -657,7 +659,8 @@ with bot:
                 buttons = list(zip(tutud[::2], tutud[1::2]))
                 if len(tutud) % 2 == 1:
                     buttons.append((tutud[-1],))
-                buttons.append([custom.Button.inline("ʙᴀᴄᴋ", data="yins_close")])
+                buttons.append(
+                    [custom.Button.inline("ʙᴀᴄᴋ", data="yins_close")])
                 result = builder.article(
                     title="Lang",
                     description="Lang ᴀʟʙʏ-ᴜꜱᴇʀʙᴏᴛ",

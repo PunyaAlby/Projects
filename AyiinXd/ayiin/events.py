@@ -1,18 +1,11 @@
-import pybase64
 from telethon.tl.functions.channels import JoinChannelRequest as Get
 from telethon.tl.types import MessageEntityMentionName
 from telethon.errors import rpcerrorlist
 from .logger import logging
 from .tools import edit_delete
 from AyiinXd import (
-    DEFAULT,
-    DEVS,
     LOGS,
-    LOOP,
-    STRING_SESSION,
-    blacklistayiin,
     bot,
-    tgbot,
 )
 import sys
 LOGS = logging.getLogger(__name__)
@@ -106,5 +99,6 @@ async def checking(client):
             await client(Get(checker))
             await client(Get(checkxd))
         except rpcerrorlist.ChannelPrivateError:
-            print("Anda Diban Dari Group Support !!! Coba Tanyakan Ke @punya_alby, @mas_taqin agar Di Unban.")
+            print(
+                "Anda Diban Dari Group Support !!! Coba Tanyakan Ke @punya_alby, @mas_taqin agar Di Unban.")
             sys.exit(1)

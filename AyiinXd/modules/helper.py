@@ -9,13 +9,13 @@ from Stringyins import get_string
 async def usit(event):
     me = await event.client.get_me()
     await eor(event, get_string("hlpr_1").format(me.first_name)
-    )
+              )
 
 
 @ayiin_cmd(pattern="listvar$")
 async def var(event):
     await eor(event, get_string("hlpr_2")
-    )
+              )
 
 
 CMD_HELP.update(
