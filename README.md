@@ -59,7 +59,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan userbot ini dengan bijak
 ### Tutorial Deploy di VPS
 
 
- • `git clone https://github.com/PunyaAlby/Projects`
+ • `git clone https://github.com/xfkm/nyoba`
 
  • `cd Projects`
 
@@ -73,7 +73,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan userbot ini dengan bijak
   - ketik ctrl + S
   - ctrl + X
 
- • `screen -S Projects`
+ • `screen -S nyoba`
 
  • `bash start`
 
@@ -83,15 +83,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan userbot ini dengan bijak
 <summary><b>🔗 Deploy To Heroku</b></summary>
 <br>
 
-<p><a href="https://heroku.com/deploy?template=https://github.com/PunyaAlby/Projects"><img src="https://img.shields.io/badge/BUAT DI-HEROKU-aqua?style=plastic&logo=heroku&logoColor=gold"width="300" /></a></p>
-
-</details>
-
-<details>
-<summary><b>🔗 Deploy To Bot Heroku</b></summary>
-<br>
-
-<p><a href="https://telegram.dog/XTZ_HerokuBot?start=UHVueWFBbGJ5L1Byb2plY3RzIEFMQlktVXNlcmJvdA"><img src="https://img.shields.io/badge/BUAT DI -BOT HEROKU-aqua?style=plastic&logo=heroku&logoColor=gold"width="300" height="45" /></a></p>
+<p><a href="https://heroku.com/deploy?template=https://github.com/xfkm/nyoba"><img src="https://img.shields.io/badge/BUAT DI-HEROKU-aqua?style=plastic&logo=heroku&logoColor=gold"width="300" /></a></p>
 
 </details>
 
@@ -113,7 +105,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan userbot ini dengan bijak
 
 [![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCOqCFbpjc_XS6GJSmyoWs2Q?style=social)](https://m.youtube.com/channel/UCOqCFbpjc_XS6GJSmyoWs2Q)
 <br>
-<a href="https://github.com/PunyaAlby"><img src="https://img.shields.io/badge/GitHub-Follow%20on%20GitHub-inactive.svg?logo=github"></a> <a href="https://t.me/Punya_Alby"><img src="https://img.shields.io/badge/Telegram-Find%20Me%20on%20Telegram-blue.svg?logo=telegram"></a> <a href="https://instagram.com/fadzkuruuniialmuttaqiin"><img src="https://img.shields.io/badge/Instagram-Follow%20on%20Instagram-red.svg?logo=instagram"></a></p>
+<a href="https://github.com/PunyaAlby"><img src="https://img.shields.io/badge/Gitb-Follow%20on%20GitHub-inactive.svg?logo=github"></a> <a href="https://t.me/Punya_Alby"><img src="https://img.shields.io/badge/Telegram-Find%20Me%20on%20Telegram-blue.svg?logo=telegram"></a> <a href="https://instagram.com/fadzkuruuniialmuttaqiin"><img src="https://img.shields.io/badge/Instagram-Follow%20on%20Instagram-red.svg?logo=instagram"></a></p>
 
 </details>
 
