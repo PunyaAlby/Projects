@@ -1,5 +1,5 @@
 FROM ayiinxd/ayiin-userbot:buster
-RUN git clone -b ALBY-Userbot https://github.com/xfkm/nyoba /home/alby/ \
+RUN git clone -b ALBY-Userbot https://github.com/PunyaAlby/Ptojects /home/alby/ \
     && chmod 777 /home/alby \
     && mkdir /home/alby/bin/
 
