@@ -8,7 +8,7 @@
 import sys
 
 from telethon.utils import get_peer_id
-from AyiinXd.ayiin.events import fuck
+from AyiinXd.ayiin.events import checking
 from AyiinXd import BOT_TOKEN
 from AyiinXd import BOT_VER as version
 from AyiinXd import (
@@ -45,7 +45,7 @@ def multiayiin():
     if STRING_SESSION:
         try:
             bot.start()
-            LOOP.run_until_complete(fuck())
+            LOOP.run_until_complete(checking())
             LOOP.run_until_complete(ayiin_client(bot))
             user = bot.get_me()
             name = user.first_name
